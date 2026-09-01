@@ -1,0 +1,197 @@
+{
+  "metadata": {
+    "title": "FOUTSET AFRICA",
+    "description": "FOUTSET AFRICA — Une expertise multidisciplinaire dans les réseaux et télécommunications, l'énergie, la formation et l'approvisionnement technique pour une Afrique en mouvement."
+  },
+  "nav": {
+    "leGroupe": "Le Groupe",
+    "nosExpertises": "Nos Expertises",
+    "nosEngagements": "Nos Engagements",
+    "actualites": "Actualités",
+    "nousContacter": "Nous contacter"
+  },
+  "mobileMenu": {
+    "tagline": "Des expertises complémentaires au service des infrastructures, des technologies et des organisations pour une Afrique en mouvement."
+  },
+  "hero": {
+    "eyebrow": "Expertise Industrielle",
+    "headlineLine1": "Connecter.",
+    "headlineLine2": "Construire.",
+    "headlineLine3": "Transformer.",
+    "subtitle": "Des expertises complémentaires au service des infrastructures, des technologies et des organisations pour une Afrique en mouvement.",
+    "primaryCta": "Découvrir nos expertises",
+    "secondaryCta": "Parlons de votre projet",
+    "projectLabel": "Projet référence",
+    "projectName": "Infrastructure Énergétique Alpha"
+  },
+  "expertiseSection": {
+    "title": "Un écosystème d'expertises.",
+    "subtitle": "Nous ne concevons pas nos métiers en silos. Foutset Africa déploie une approche intégrée où l'ingénierie, la technologie et l'humain convergent pour bâtir des solutions industrielles durables.",
+    "discover": "Découvrir"
+  },
+  "expertiseItems": {
+    "reseaux-telecom": {
+      "title": "Réseaux & Télécom",
+      "description": "Déploiement d'infrastructures critiques, fibre optique et solutions de connectivité à haut débit pour entreprises et opérateurs."
+    },
+    "energie": {
+      "title": "Énergie",
+      "description": "Solutions énergétiques fiables, électrification et intégration des énergies renouvelables."
+    },
+    "formation": {
+      "title": "Formation",
+      "description": "Transfert de compétences techniques."
+    },
+    "prestation": {
+      "title": "Prestation",
+      "description": "Mise à disposition de personnel qualifié."
+    },
+    "import-export": {
+      "title": "Import/Export",
+      "description": "Négoce et logistique de matériel spécialisé."
+    }
+  },
+  "about": {
+    "eyebrow": "Le Groupe",
+    "title": "L'ambition au service du développement.",
+    "paragraph1": "FOUTSET AFRICA SARL s'affirme comme un partenaire institutionnel de premier plan, dédié à la transformation des infrastructures sur le continent. Notre force réside dans notre capacité à piloter des projets complexes avec une rigueur technique absolue.",
+    "paragraph2": "Nous combinons l'agilité d'une entreprise moderne avec les standards d'excellence exigés par les grands donneurs d'ordre industriels et gouvernementaux. Chaque projet est abordé avec une vision systémique, garantissant durabilité, sécurité et performance.",
+    "normsLabel": "Normes",
+    "normsValue": "ISO / QSE",
+    "coverageLabel": "Couverture",
+    "coverageValue": "Nationale & sous-régionale"
+  },
+  "cta": {
+    "title": "Prêt à transformer votre vision ?",
+    "subtitle": "Nos équipes d'ingénieurs et de consultants sont à votre disposition pour analyser vos besoins structurels et technologiques.",
+    "button": "Parlons de votre projet"
+  },
+  "footer": {
+    "tagline": "Connecter. . Transformer.",
+    "headquartersLabel": "Siège social",
+    "headquartersValue": "Douala, Cameroun",
+    "navigationTitle": "Navigation",
+    "certificationsTitle": "Qualité & certifications",
+    "contactTitle": "Contact",
+    "writeToUs": "Nous écrire",
+    "requestQuote": "Demander un devis",
+    "copyright": "FOUTSET AFRICA SARL. Tous droits réservés.",
+    "legalNotice": "Mentions légales",
+    "privacyPolicy": "Politique de confidentialité"
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Une question, un projet ? Notre équipe est à votre écoute.",
+    "addressLabel": "Adresse",
+    "addressValue": "Douala, Cameroun",
+    "emailLabel": "Email",
+    "phoneLabel": "Téléphone",
+    "formName": "Nom complet",
+    "formEmail": "Email",
+    "formMessage": "Votre message...",
+    "formSubmit": "Envoyer"
+  },
+  "expertiseDetail": {
+    "domainsTitle": "Domaines d'intervention",
+    "reseaux-telecom": {
+      "eyebrow": "Expertises Foutset Africa",
+      "heroWord": "CONNECTER",
+      "heroSubtitle": "Concevoir, déployer et sécuriser les réseaux qui irriguent le continent.",
+      "introTitle": "L'Expertise Réseaux & Télécom",
+      "introParagraph1": "Foutset Africa conçoit, installe et maintient des infrastructures de télécommunications complètes : liaisons satellitaires VSAT, stations de base mobiles, faisceaux hertziens et réseaux d'entreprise. Notre équipe intervient sur l'ensemble de la chaîne, de l'étude technique à la mise en service.",
+      "introParagraph2": "Nous accompagnons opérateurs, institutions et entreprises dans le déploiement de solutions de connectivité résilientes, y compris dans les zones les plus enclavées où la fibre et le réseau terrestre ne suffisent pas.",
+      "domainsSubtitle": "Des solutions techniques complètes, de la liaison satellite à la sécurisation des sites.",
+      "feature1Title": "Déploiement VSAT",
+      "feature1Description": "Installation de terminaux VSAT en bandes C, Ku et Ka pour une connectivité internet dédiée ou partagée, avec des débits pouvant atteindre 200 Mbps.",
+      "feature2Title": "Réseaux Mobiles & BTS",
+      "feature2Description": "Déploiement de stations de base GSM/3G/4G LTE et de systèmes hertziens, avec optimisation RF, drive testing et suivi des indicateurs de performance.",
+      "compactTitle": "Infrastructure Réseau",
+      "compactDescription": "Déploiement VoIP, LAN/WLAN et infrastructures serveurs pour les réseaux d'entreprise.",
+      "darkTitle": "Sécurité & Surveillance",
+      "darkDescription": "Installation de systèmes d'alarme, de protection foudre et de vidéosurveillance pour sécuriser vos sites techniques.",
+      "closingTitle": "La connectivité comme levier de croissance.",
+      "closingParagraph": "Dans un monde hyperconnecté, l'infrastructure réseau n'est plus un centre de coût mais l'épine dorsale de votre développement. Nous concevons des architectures robustes, capables de soutenir vos ambitions futures.",
+      "ctaLabel": "Parlons de votre projet réseau"
+    },
+    "energie": {
+      "eyebrow": "Expertises Foutset Africa",
+      "heroWord": "ALIMENTER",
+      "heroSubtitle": "Des solutions énergétiques fiables pour un continent en mouvement.",
+      "introTitle": "L'Expertise Énergie",
+      "introParagraph1": "Foutset Africa conçoit et installe des solutions énergétiques adaptées aux contraintes du terrain : systèmes photovoltaïques, solutions hybrides et dispositifs de secours électrique, pour garantir la continuité de service des sites industriels, télécoms et institutionnels.",
+      "introParagraph2": "Notre approche privilégie des installations dimensionnées au plus juste, alliant performance, durabilité et maîtrise des coûts d'exploitation sur le long terme.",
+      "domainsSubtitle": "De la conception à la maintenance, une chaîne complète de solutions énergétiques.",
+      "feature1Title": "Solutions Solaires Photovoltaïques",
+      "feature1Description": "Conception et installation de systèmes solaires PV pour sites industriels, télécoms et résidentiels.",
+      "feature2Title": "Systèmes de Secours Électrique",
+      "feature2Description": "Installation de solutions de backup pour garantir la continuité d'alimentation de vos infrastructures critiques.",
+      "compactTitle": "Maintenance Énergétique",
+      "compactDescription": "Suivi préventif et curatif des installations pour une performance durable.",
+      "darkTitle": "Études & Dimensionnement",
+      "darkDescription": "Audits énergétiques et dimensionnement sur mesure adaptés à vos contraintes techniques et budgétaires.",
+      "closingTitle": "L'énergie, condition de toute transformation.",
+      "closingParagraph": "Aucune infrastructure ne fonctionne sans une alimentation fiable. Nous concevons des solutions énergétiques pensées pour durer, dans des environnements où la continuité de service est non négociable.",
+      "ctaLabel": "Parlons de votre projet énergie"
+    },
+    "formation": {
+      "eyebrow": "Expertises Foutset Africa",
+      "heroWord": "TRANSMETTRE",
+      "heroSubtitle": "Renforcer les compétences techniques locales, durablement.",
+      "introTitle": "L'Expertise Formation",
+      "introParagraph1": "Foutset Africa forme les équipes techniques à l'installation, la mise en service et la maintenance des systèmes qu'elle déploie : réseaux, télécoms, énergie solaire et infrastructures VSAT. Nos formations combinent apports théoriques et mise en pratique sur le terrain.",
+      "introParagraph2": "Notre objectif : transférer une expertise durable aux équipes locales, pour garantir l'autonomie opérationnelle de nos clients et partenaires sur le long terme.",
+      "domainsSubtitle": "Des parcours de formation technique, alignés sur nos domaines d'expertise.",
+      "feature1Title": "Formation VSAT",
+      "feature1Description": "Installation, mise en service et maintenance des systèmes satellitaires VSAT.",
+      "feature2Title": "Formation Énergie Solaire",
+      "feature2Description": "Installation et maintenance des systèmes photovoltaïques et de secours électrique.",
+      "compactTitle": "Formation Infrastructure Réseau",
+      "compactDescription": "Mise en service et maintenance des réseaux et infrastructures télécoms.",
+      "darkTitle": "Transfert de Compétences",
+      "darkDescription": "Accompagnement terrain et certification des équipes locales pour une autonomie durable.",
+      "closingTitle": "Des compétences qui restent, bien après le projet.",
+      "closingParagraph": "Former, c'est investir dans la pérennité des infrastructures. Chaque intervention est aussi l'occasion de renforcer durablement les capacités techniques de nos clients et partenaires.",
+      "ctaLabel": "Parlons de votre projet de formation"
+    },
+    "prestation": {
+      "eyebrow": "Expertises Foutset Africa",
+      "heroWord": "ACCOMPAGNER",
+      "heroSubtitle": "L'expertise technique et humaine au service de vos projets.",
+      "introTitle": "L'Expertise Prestation",
+      "introParagraph1": "Foutset Africa met à disposition des techniciens et ingénieurs qualifiés pour renforcer vos équipes sur le terrain, ainsi qu'un accompagnement en conseil technique sur vos projets d'infrastructures énergie et télécoms.",
+      "introParagraph2": "De l'étude de faisabilité à la recette finale, nous pilotons chaque intervention avec une méthodologie rigoureuse, garantissant le respect des délais et des standards de sécurité.",
+      "domainsSubtitle": "Un accompagnement technique et humain, à chaque étape de vos projets.",
+      "feature1Title": "Conseil Technique",
+      "feature1Description": "Accompagnement en ingénierie et conseil général sur vos infrastructures énergie et TIC.",
+      "feature2Title": "Personnel Qualifié",
+      "feature2Description": "Mise à disposition de techniciens et ingénieurs spécialisés pour renforcer vos équipes.",
+      "compactTitle": "Gestion de Projet",
+      "compactDescription": "Pilotage intégré de vos projets, de l'étude à la mise en service.",
+      "darkTitle": "Méthodologies Agiles",
+      "darkDescription": "Des méthodes de gestion de projet garantissant le respect des délais et des normes de sécurité internationales.",
+      "closingTitle": "Votre projet, notre rigueur d'exécution.",
+      "closingParagraph": "Chaque prestation est pilotée avec la même exigence : des méthodologies éprouvées, une équipe qualifiée et un engagement sur les délais.",
+      "ctaLabel": "Parlons de votre besoin en prestation"
+    },
+    "import-export": {
+      "eyebrow": "Expertises Foutset Africa",
+      "heroWord": "APPROVISIONNER",
+      "heroSubtitle": "Le bon matériel technique, au bon endroit, au bon moment.",
+      "introTitle": "L'Expertise Import/Export",
+      "introParagraph1": "Foutset Africa assure l'approvisionnement et la logistique des équipements techniques nécessaires à vos projets d'énergie et de télécommunications : matériel réseau, systèmes VSAT, équipements solaires et infrastructures de sécurité.",
+      "introParagraph2": "Nous nous appuyons sur un réseau de fournisseurs internationaux qualifiés pour garantir la disponibilité, la conformité et la traçabilité du matériel livré sur vos sites.",
+      "domainsSubtitle": "De la sélection des équipements à leur livraison sur site.",
+      "feature1Title": "Approvisionnement Matériel",
+      "feature1Description": "Fourniture d'équipements télécoms, énergie et TIC, sélectionnés selon vos cahiers des charges.",
+      "feature2Title": "Logistique Spécialisée",
+      "feature2Description": "Import, export et acheminement de matériel technique jusqu'à vos sites, y compris dans les zones les plus reculées.",
+      "compactTitle": "Contrôle Qualité",
+      "compactDescription": "Vérification de conformité du matériel avant livraison sur site.",
+      "darkTitle": "Partenariats Fournisseurs",
+      "darkDescription": "Un réseau de fournisseurs internationaux qualifiés pour garantir disponibilité et traçabilité.",
+      "closingTitle": "La bonne pièce, au bon moment, sur le terrain.",
+      "closingParagraph": "Un projet bien exécuté dépend aussi d'une chaîne d'approvisionnement fiable. Nous sécurisons la disponibilité de votre matériel technique, du fournisseur jusqu'au site.",
+      "ctaLabel": "Parlons de votre besoin en approvisionnement"
+    }
+  }
+}
