@@ -3,16 +3,12 @@ export type DomainIcon =
   | "tower"
   | "network"
   | "security"
-  | "solar"
-  | "battery"
   | "maintenance"
   | "certification"
   | "consulting"
   | "staffing"
   | "project"
-  | "supply"
-  | "logistics"
-  | "partnership";
+  | "supply";
 
 type IconProps = {
   className?: string;
@@ -47,22 +43,6 @@ function SecurityIcon({ className }: IconProps) {
   return (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12.75L11.25 15 15 9.75M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v3.475c0 4.75-2.947 9.081-7.5 10.751A11.219 11.219 0 013 8.25V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
-    </svg>
-  );
-}
-
-function SolarIcon({ className }: IconProps) {
-  return (
-    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3v2.25M18.364 5.636l-1.591 1.591M21 12h-2.25M18.364 18.364l-1.591-1.591M12 18.75V21M7.227 16.773l-1.591 1.591M5.25 12H3M7.227 7.227L5.636 5.636M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-    </svg>
-  );
-}
-
-function BatteryIcon({ className }: IconProps) {
-  return (
-    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.75 8.25h13.5a1.5 1.5 0 011.5 1.5v4.5a1.5 1.5 0 01-1.5 1.5H3.75a1.5 1.5 0 01-1.5-1.5v-4.5a1.5 1.5 0 011.5-1.5zM20.25 10.5v3M6.75 11.25v1.5M9.75 11.25v1.5" />
     </svg>
   );
 }
@@ -112,23 +92,7 @@ function ProjectIcon({ className }: IconProps) {
 function SupplyIcon({ className }: IconProps) {
   return (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
-    </svg>
-  );
-}
-
-function LogisticsIcon({ className }: IconProps) {
-  return (
-    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v11.177m0-11.177L12.29 3.65a1.125 1.125 0 00-1.038-.65H4.5a1.125 1.125 0 00-1.125 1.125v13.5c0 .621.504 1.125 1.125 1.125h.75" />
-    </svg>
-  );
-}
-
-function PartnershipIcon({ className }: IconProps) {
-  return (
-    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-9L21 3m0 0l-4.5 4.5M21 3v13.5" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25M21 7.5v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
     </svg>
   );
 }
@@ -138,16 +102,12 @@ const icons: Record<DomainIcon, (props: IconProps) => React.ReactElement> = {
   tower: TowerIcon,
   network: NetworkIcon,
   security: SecurityIcon,
-  solar: SolarIcon,
-  battery: BatteryIcon,
   maintenance: MaintenanceIcon,
   certification: CertificationIcon,
   consulting: ConsultingIcon,
   staffing: StaffingIcon,
   project: ProjectIcon,
   supply: SupplyIcon,
-  logistics: LogisticsIcon,
-  partnership: PartnershipIcon,
 };
 
 export function DomainIconGlyph({

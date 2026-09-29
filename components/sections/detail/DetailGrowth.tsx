@@ -1,46 +1,55 @@
-import { Link } from "@/i18n/navigation";
-import type { DomainIcon } from "@/components/data/domain-icons";
-import { DomainIconGlyph } from "@/components/data/domain-icons";
+import Image from "next/image";
+import CtaButton from "@/components/ui/CtaButton";
+
+/* La note de clôture : ce que l'expertise change pour le client, et l'appel.
+
+   Elle tenait un titre et un paragraphe seuls sur du blanc. Elle porte
+   maintenant une seconde photo, dans le cadre arrondi du hero en miroir, et
+   se termine sur le bouton de contact avec le libellé propre à l'expertise
+   (« Parlons de votre projet réseau »…), qui n'était affiché nulle part. */
 
 export default function DetailGrowth({
+  discipline,
   title,
   paragraph,
   ctaLabel,
-  icon,
+  image,
+  imagePosition = "object-center",
 }: {
+  discipline: string;
   title: string;
   paragraph: string;
   ctaLabel: string;
-  icon: DomainIcon;
+  image: string;
+  imagePosition?: string;
 }) {
   return (
-    <section className="bg-white py-20">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+    <section className="bg-paper">
+      <div className="mx-auto grid max-w-[92rem] items-center gap-12 px-6 py-20 lg:grid-cols-2 lg:gap-20 lg:px-10 lg:py-28 xl:px-16">
+        <div className="relative mr-3 mb-3 lg:mr-4 lg:mb-4">
           <div
-            className="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-gradient-to-br from-[#2A78C0] to-[#1A1A1A]"
-            style={{
-              clipPath: "polygon(0 0, 100% 0, 100% 82%, 82% 100%, 0 100%)",
-            }}
-          >
-            <DomainIconGlyph icon={icon} className="h-20 w-20 text-white/20" />
+            aria-hidden
+            className="absolute inset-0 translate-x-3 translate-y-3 rounded-[1.75rem] rounded-tr-[5rem] border border-blue/40 lg:translate-x-4 lg:translate-y-4"
+          />
+          <div className="relative aspect-4/3 overflow-hidden rounded-[1.75rem] rounded-tr-[5rem] bg-sheet-deep">
+            <Image
+              src={image}
+              alt=""
+              fill
+              sizes="(min-width: 1024px) 45vw, 100vw"
+              className={`object-cover ${imagePosition}`}
+            />
           </div>
+        </div>
 
-          <div>
-            <p className="text-sm font-semibold text-[#CCCCCC]">03</p>
-            <h2 className="mt-2 text-2xl text-[#1A1A1A] sm:text-3xl">
-              {title}
-            </h2>
-            <p className="mt-4 text-[#555555] leading-relaxed">{paragraph}</p>
+        <div>
+          <p className="sheet-label">{discipline}</p>
+          <h2 className="mt-4 max-w-[18ch]">{title}</h2>
+          <p className="mt-5 max-w-[52ch] text-[1.125rem]">{paragraph}</p>
 
-            <Link
-              href="/contact"
-              className="mt-8 inline-flex items-center rounded-full bg-[#F07818] px-6 py-3.5 text-sm font-semibold uppercase tracking-wide text-white transition-all hover:bg-[#c9640f]"
-            >
-              {ctaLabel}
-              <span className="ml-2">→</span>
-            </Link>
-          </div>
+          <CtaButton href="/contact" className="mt-9">
+            {ctaLabel}
+          </CtaButton>
         </div>
       </div>
     </section>

@@ -1,68 +1,109 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import {
-  primaryExpertise,
-  groupedExpertise,
-  type ExpertiseItem,
-} from "@/components/data/expertise";
-import { ExpertiseIconGlyph } from "@/components/data/expertise-icons";
+import SkeletonImage from "@/components/ui/SkeletonImage";
+import { allExpertise } from "@/components/data/expertise";
+import { AnimatedText } from "@/components/ui/animated-text";
 
-type ItemText = { title: string; description: string };
+/* Les expertises, en mosaïque : une grande case photo, des cases photo
+   plus petites, et une case d'appel. Chaque service porte sa photo en fond.
+   Au survol, le titre et la description passent aux couleurs du logo
+   (bleu, orange) — pas de levée ni de zoom. */
 
-function PrimaryCard({
-  item,
-  text,
-  discoverLabel,
-}: {
-  item: ExpertiseItem;
-  text: ItemText;
-  discoverLabel: string;
-}) {
+const SIZES = "(min-width: 1024px) 45vw, 100vw";
+
+function Chevron({ className }: { className?: string }) {
   return (
-    <div
-      id={item.id}
-      className="group relative scroll-mt-24 overflow-hidden rounded-2xl border border-[#E5E5E5] bg-white p-8 transition-all hover:shadow-md"
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden
     >
-      <ExpertiseIconGlyph
-        icon={item.icon}
-        className="pointer-events-none absolute -right-4 -bottom-4 h-32 w-32 text-[#1A1A1A] opacity-[0.04]"
-      />
-
-      <span className="relative flex h-10 w-10 items-center justify-center text-[#F07818]">
-        <ExpertiseIconGlyph icon={item.icon} className="h-7 w-7" />
-      </span>
-
-      <h3 className="relative mt-4 text-xl text-[#1A1A1A]">{text.title}</h3>
-      <p className="relative mt-3 max-w-sm text-sm text-[#555555] leading-relaxed">
-        {text.description}
-      </p>
-
-      <Link
-        href={`/expertises/${item.id}`}
-        className="relative mt-6 inline-flex items-center text-xs font-semibold uppercase tracking-wide text-[#2A78C0] transition-colors hover:text-[#F07818]"
-      >
-        {discoverLabel}
-        <span className="ml-2">→</span>
-      </Link>
-    </div>
+      <path d="M9 5l7 7-7 7" />
+    </svg>
   );
 }
 
-function GroupedItem({ item, text }: { item: ExpertiseItem; text: ItemText }) {
+async function ServiceCell({
+  id,
+  image,
+  featured = false,
+}: {
+  id: string;
+  image: string;
+  featured?: boolean;
+}) {
+  const t = await getTranslations("expertiseItems");
+
   return (
     <Link
-      href={`/expertises/${item.id}`}
-      id={item.id}
-      className="group block scroll-mt-24"
+      href={`/expertises/${id}`}
+      id={id}
+      className={`group/cell relative flex scroll-mt-28 flex-col justify-end overflow-hidden rounded-2xl bg-blue-abyss p-5 no-underline lg:p-6 ${
+        featured
+          ? "min-h-[22rem] p-6 lg:col-span-2 lg:row-span-2 lg:min-h-0 lg:p-8"
+          : "min-h-[12rem] lg:min-h-0"
+      }`}
     >
-      <span className="flex h-9 w-9 items-center justify-center text-[#F07818]">
-        <ExpertiseIconGlyph icon={item.icon} className="h-6 w-6" />
-      </span>
-      <h4 className="mt-3 text-white transition-colors group-hover:text-[#F07818]">
-        {text.title}
-      </h4>
-      <p className="mt-2 text-sm text-white/60 leading-relaxed">
-        {text.description}
+      <SkeletonImage
+        src={image}
+        alt=""
+        fill
+        sizes={SIZES}
+        className="object-cover"
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-[linear-gradient(to_top,rgba(6,9,13,0.86)_0%,rgba(6,9,13,0.35)_52%,transparent_78%)]"
+      />
+
+      <div className="relative flex flex-col items-start gap-2">
+        <h3
+          className={`font-display font-bold tracking-[-0.02em] text-paper transition-colors duration-300 group-hover/cell:text-blue ${
+            featured
+              ? "max-w-[18ch] text-[clamp(1.5rem,2.6vw,2.25rem)] leading-[1.02]"
+              : "text-[1.0625rem] leading-snug"
+          }`}
+        >
+          {t(`${id}.title`)}
+        </h3>
+        <p
+          className={`text-blue-wash transition-colors duration-300 group-hover/cell:text-orange ${
+            featured
+              ? "max-w-[42ch] text-[1.0625rem]"
+              : "line-clamp-2 text-[0.9375rem]"
+          }`}
+        >
+          {t(`${id}.description`)}
+        </p>
+      </div>
+    </Link>
+  );
+}
+
+async function CtaCell() {
+  const t = await getTranslations("cta");
+
+  return (
+    <Link
+      href="/contact"
+      className="group/cell relative flex min-h-[12rem] flex-col justify-between gap-6 overflow-hidden rounded-2xl bg-ink p-5 no-underline lg:min-h-0 lg:p-6"
+    >
+      <div className="flex items-start justify-between gap-4">
+        <span className="inline-flex w-fit items-center rounded-full bg-paper/15 px-3 py-1 text-[0.6875rem] font-bold tracking-[0.08em] text-paper uppercase ring-1 ring-paper/25">
+          {t("button")}
+        </span>
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-paper/10 text-paper">
+          <Chevron className="h-4 w-4" />
+        </span>
+      </div>
+
+      <p className="font-display max-w-[16ch] text-[1.1875rem] leading-[1.1] font-bold tracking-[-0.01em] text-paper transition-colors duration-300 group-hover/cell:text-blue">
+        {t("title")}
       </p>
     </Link>
   );
@@ -70,43 +111,69 @@ function GroupedItem({ item, text }: { item: ExpertiseItem; text: ItemText }) {
 
 export default async function Expertise() {
   const t = await getTranslations("expertiseSection");
-  const tItems = await getTranslations("expertiseItems");
+  const byId = new Map(allExpertise.map((item) => [item.id, item]));
+  const lead = byId.get("reseaux-telecom")!;
+  const energie = byId.get("energie")!;
+  const formation = byId.get("formation")!;
+  const supply = byId.get("equipment-supply")!;
+  const broadcast = byId.get("diffusion-tv-vsat")!;
 
   return (
-    <section id="expertises" className="bg-white py-24">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="max-w-2xl">
-          <h2 className="text-3xl text-[#1A1A1A] sm:text-4xl">{t("title")}</h2>
-          <p className="mt-4 text-[#555555] leading-relaxed">{t("subtitle")}</p>
-        </div>
+    <section
+      id="expertises"
+      className="relative isolate z-[2] flex scroll-mt-0 flex-col justify-center overflow-hidden rounded-t-[1.25rem] bg-paper lg:sticky lg:top-0 lg:min-h-svh"
+    >
+      {/* Essai du client : une trame de lignes fines, avec une lueur radiale
+          posée dessus en haut à droite. C'est un fond décoratif quadrillé
+          hors surface de carte/plan — la règle du détecteur le signale par
+          principe (voir codex-grid-background) ; gardé ici parce que c'est
+          exactement ce que le client a demandé d'essayer, en bleu de la
+          marque plutôt qu'en violet générique. À repasser en fond uni si
+          l'essai ne convainc pas. */}
+      {/* impeccable-disable-next-line codex-grid-background -- essai voulu par le client, voir commentaire ci-dessus */}
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, var(--color-rule-soft) 1px, transparent 1px), linear-gradient(to bottom, var(--color-rule-soft) 1px, transparent 1px)",
+          backgroundSize: "6rem 4rem",
+        }}
+      >
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(circle 800px at 100% 200px, var(--color-blue-tint), transparent)",
+          }}
+        />
+      </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          {primaryExpertise.map((item) => (
-            <PrimaryCard
-              key={item.id}
-              item={item}
-              text={{
-                title: tItems(`${item.id}.title`),
-                description: tItems(`${item.id}.description`),
-              }}
-              discoverLabel={t("discover")}
+      <div className="mx-auto flex w-full max-w-[92rem] flex-col items-center gap-10 px-4 py-20 lg:gap-[clamp(1.25rem,3svh,2.5rem)] lg:px-10 lg:py-[clamp(2.5rem,5svh,3.5rem)]">
+        <div className="flex flex-col items-center gap-3">
+          <h2 className="text-center leading-[0.95] font-bold tracking-[-0.03em] text-blue uppercase">
+            <AnimatedText
+              text={t("title")}
+              className="text-[clamp(2rem,min(5vw,7svh),4rem)]"
             />
-          ))}
+          </h2>
+
+          <p className="max-w-[46ch] text-center text-[1.0625rem] text-body">
+            {t.rich("subtitle", {
+              accent: (chunks) => (
+                <strong className="font-bold text-orange">{chunks}</strong>
+              ),
+            })}
+          </p>
         </div>
 
-        <div className="mt-6 rounded-2xl bg-[#1A1A1A] p-8 sm:p-10">
-          <div className="grid gap-8 sm:grid-cols-3">
-            {groupedExpertise.map((item) => (
-              <GroupedItem
-                key={item.id}
-                item={item}
-                text={{
-                  title: tItems(`${item.id}.title`),
-                  description: tItems(`${item.id}.description`),
-                }}
-              />
-            ))}
-          </div>
+        <div className="grid w-full grid-cols-1 gap-5 lg:grid-cols-3 lg:grid-rows-[clamp(13rem,22svh,16rem)_clamp(13rem,22svh,16rem)_clamp(12rem,17svh,13.5rem)]">
+          <ServiceCell id={lead.id} image={lead.image} featured />
+          <ServiceCell id={energie.id} image={energie.image} />
+          <ServiceCell id={formation.id} image={formation.image} />
+          <CtaCell />
+          <ServiceCell id={supply.id} image={supply.image} />
+          <ServiceCell id={broadcast.id} image={broadcast.image} />
         </div>
       </div>
     </section>

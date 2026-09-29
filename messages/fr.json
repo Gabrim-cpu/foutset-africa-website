@@ -1,197 +1,308 @@
 {
   "metadata": {
     "title": "FOUTSET AFRICA",
-    "description": "FOUTSET AFRICA — Une expertise multidisciplinaire dans les réseaux et télécommunications, l'énergie, la formation et l'approvisionnement technique pour une Afrique en mouvement."
+    "description": "FOUTSET AFRICA déploie des liaisons satellitaires VSAT, des réseaux GSM/3G/4G LTE et des infrastructures télécoms, avec la formation technique et la fourniture d'équipements, au Cameroun et en Afrique centrale."
   },
   "nav": {
-    "leGroupe": "Le Groupe",
-    "nosExpertises": "Nos Expertises",
-    "nosEngagements": "Nos Engagements",
-    "actualites": "Actualités",
-    "nousContacter": "Nous contacter"
+    "home": "FOUTSET AFRICA — accueil",
+    "primaryNav": "Navigation principale",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "backToTop": "Haut de page",
+    "contact": "Contact",
+    "services": "Services",
+    "produits": "Produits",
+    "tvSolution": "Solution TV",
+    "vsatSolution": "Solution VSAT",
+    "gsmBackhauling": "Backhauling GSM"
   },
   "mobileMenu": {
-    "tagline": "Des expertises complémentaires au service des infrastructures, des technologies et des organisations pour une Afrique en mouvement."
+    "legendTitle": "Nos services",
+    "tagline": "Déploiement et maintenance de réseaux et d'infrastructures télécoms, au Cameroun et en Afrique centrale."
+  },
+  "map": {
+    "sheetTitle": "Zone d'intervention de FOUTSET AFRICA : le Cameroun en couverture nationale, l'Afrique centrale en couverture sous-régionale, depuis Douala.",
+    "doualaMarker": "Douala — siège",
+    "cameroun": "Cameroun",
+    "tchad": "Tchad",
+    "centrafrique": "Centrafrique",
+    "gabon": "Gabon",
+    "congo": "Congo",
+    "rdCongo": "RD Congo",
+    "nigeria": "Nigeria"
   },
   "hero": {
-    "eyebrow": "Expertise Industrielle",
-    "headlineLine1": "Connecter.",
-    "headlineLine2": "Construire.",
-    "headlineLine3": "Transformer.",
-    "subtitle": "Des expertises complémentaires au service des infrastructures, des technologies et des organisations pour une Afrique en mouvement.",
-    "primaryCta": "Découvrir nos expertises",
-    "secondaryCta": "Parlons de votre projet",
-    "projectLabel": "Projet référence",
-    "projectName": "Infrastructure Énergétique Alpha"
+    "headline": "Le réseau, jusqu'où ils ne vont pas encore.",
+    "subtitle": "<brand>FOUTSET</brand> <accent>AFRICA</accent> déploie des <b>liaisons satellite</b>, des <b>réseaux mobiles</b> et des <b>services de télécommunications</b> à travers l'Afrique.\n\n<b>Nous fournissons le matériel</b> et <b>formons les équipes qui en assureront le fonctionnement.</b>",
+    "legendTitle": "Nos services",
+    "legendPlace": "Douala, Cameroun",
+    "cta": "Demander un devis"
   },
   "expertiseSection": {
-    "title": "Un écosystème d'expertises.",
-    "subtitle": "Nous ne concevons pas nos métiers en silos. Foutset Africa déploie une approche intégrée où l'ingénierie, la technologie et l'humain convergent pour bâtir des solutions industrielles durables.",
-    "discover": "Découvrir"
+    "title": "Services",
+    "lead": "Cœur de métier",
+    "subtitle": "Découvrez ce que nous <accent>construisons, déployons et fournissons</accent>."
   },
   "expertiseItems": {
     "reseaux-telecom": {
-      "title": "Réseaux & Télécom",
-      "description": "Déploiement d'infrastructures critiques, fibre optique et solutions de connectivité à haut débit pour entreprises et opérateurs."
-    },
-    "energie": {
-      "title": "Énergie",
-      "description": "Solutions énergétiques fiables, électrification et intégration des énergies renouvelables."
+      "title": "Réseaux et Télécom",
+      "description": "Déploiement VSAT, diffusion TV par satellite, réseaux GSM/3G/4G LTE, installation de pylônes clé en main et sécurisation des sites.",
+      "bandsLabel": "Bandes",
+      "bands": "C · Ku · Ka",
+      "throughputLabel": "Débit",
+      "throughput": "jusqu'à 200 Mbps",
+      "contentionLabel": "Contention",
+      "contention": "jusqu'à 1:20"
     },
     "formation": {
       "title": "Formation",
-      "description": "Transfert de compétences techniques."
+      "description": "Formation à l'installation, la mise en service et la maintenance VSAT, réseaux mobiles et infrastructures télécoms."
     },
     "prestation": {
       "title": "Prestation",
-      "description": "Mise à disposition de personnel qualifié."
+      "description": "Conseil général, personnel qualifié et fourniture d'équipements d'infrastructures télécoms et TIC pour vos projets."
     },
-    "import-export": {
-      "title": "Import/Export",
-      "description": "Négoce et logistique de matériel spécialisé."
+    "equipment-supply": {
+      "title": "Fourniture d'équipements",
+      "description": "Approvisionnement et livraison d'équipements télécoms, VSAT, réseau et sécurité, sélectionnés selon vos cahiers des charges et livrés sur site."
+    },
+    "energie": {
+      "title": "Énergie",
+      "description": "Systèmes solaires et d'alimentation de secours qui maintiennent sites télécoms, réseaux et installations isolées en service, jour et nuit."
+    },
+    "diffusion-tv-vsat": {
+      "title": "Diffusion TV par satellite et solution VSAT",
+      "description": "Diffusion télévisuelle par satellite et connectivité internet VSAT, en bandes C et Ku, pour vos sites les plus isolés."
     }
   },
   "about": {
     "eyebrow": "Le Groupe",
-    "title": "L'ambition au service du développement.",
-    "paragraph1": "FOUTSET AFRICA SARL s'affirme comme un partenaire institutionnel de premier plan, dédié à la transformation des infrastructures sur le continent. Notre force réside dans notre capacité à piloter des projets complexes avec une rigueur technique absolue.",
-    "paragraph2": "Nous combinons l'agilité d'une entreprise moderne avec les standards d'excellence exigés par les grands donneurs d'ordre industriels et gouvernementaux. Chaque projet est abordé avec une vision systémique, garantissant durabilité, sécurité et performance.",
-    "normsLabel": "Normes",
-    "normsValue": "ISO / QSE",
-    "coverageLabel": "Couverture",
-    "coverageValue": "Nationale & sous-régionale"
+    "introText": "FOUTSET AFRICA est une entreprise camerounaise d'ingénieurs et de techniciens spécialisée dans le déploiement et la maintenance d'infrastructures télécoms et réseau, au service des opérateurs, fournisseurs de services et institutions du Cameroun et de l'Afrique centrale.",
+    "exploreLabel": "Découvrir nos services",
+    "missionLabel": "Notre mission",
+    "missionText": "Fournir et livrer des services de support technologique à la pointe, à nos clients et partenaires, au niveau national et international.",
+    "visionLabel": "Notre vision",
+    "visionText": "Répondre efficacement aux besoins évolutifs de nos partenaires, clients et parties prenantes à travers le continent."
   },
   "cta": {
-    "title": "Prêt à transformer votre vision ?",
-    "subtitle": "Nos équipes d'ingénieurs et de consultants sont à votre disposition pour analyser vos besoins structurels et technologiques.",
-    "button": "Parlons de votre projet"
+    "title": "Dites-nous où se trouve le site.",
+    "subtitle": "Une liaison à établir, un réseau à étendre, une équipe à former, du matériel à faire venir. Décrivez le besoin : nous revenons avec une étude et un devis.",
+    "button": "Demander un devis"
   },
   "footer": {
-    "tagline": "Connecter. . Transformer.",
+    "tagline": "Déploiement et maintenance d'infrastructures télécoms et réseau au Cameroun et en Afrique centrale.",
     "headquartersLabel": "Siège social",
     "headquartersValue": "Douala, Cameroun",
+    "scaleLabel": "0 — 1 500 km depuis Douala",
     "navigationTitle": "Navigation",
-    "certificationsTitle": "Qualité & certifications",
-    "contactTitle": "Contact",
-    "writeToUs": "Nous écrire",
-    "requestQuote": "Demander un devis",
-    "copyright": "FOUTSET AFRICA SARL. Tous droits réservés.",
-    "legalNotice": "Mentions légales",
-    "privacyPolicy": "Politique de confidentialité"
+    "expertiseTitle": "Services",
+    "copyright": "FOUTSET AFRICA SARL. Tous droits réservés."
   },
   "contact": {
-    "title": "Contactez-nous",
-    "subtitle": "Une question, un projet ? Notre équipe est à votre écoute.",
+    "metaDescription": "Contactez FOUTSET AFRICA à Douala, Cameroun, pour vos projets d'infrastructures télécoms et réseau. Demandez un devis ou échangez avec notre équipe d'ingénieurs.",
+    "metaTitle": "Contact",
+    "title": "Où se trouve le site, et que lui faut-il ?",
+    "subtitle": "Plus votre description est précise — la localisation, le besoin, les contraintes du site — plus notre réponse le sera. Nous revenons vers vous avec une étude et un devis.",
+    "sheetLabel": "Coordonnées",
     "addressLabel": "Adresse",
     "addressValue": "Douala, Cameroun",
     "emailLabel": "Email",
     "phoneLabel": "Téléphone",
+    "formTitle": "Décrire le besoin",
     "formName": "Nom complet",
+    "formNamePlaceholder": "Prénom et nom",
     "formEmail": "Email",
-    "formMessage": "Votre message...",
-    "formSubmit": "Envoyer"
+    "formEmailPlaceholder": "vous@entreprise.com",
+    "formSite": "Localisation du site",
+    "formSitePlaceholder": "Ville, région, ou coordonnées",
+    "formNeed": "Nature du besoin",
+    "formNeedPlaceholder": "Choisir",
+    "formMessage": "Votre message",
+    "formMessagePlaceholder": "Décrivez le site, le besoin et les contraintes connues.",
+    "formSubmit": "Envoyer la demande",
+    "formNote": "La demande s'ouvre dans votre logiciel de messagerie, prête à partir.",
+    "formNeedNone": "Non précisé",
+    "mailSubject": "Demande de devis",
+    "mapCaption": "Zone d'intervention",
+    "errorRequired": "Ce champ est nécessaire pour vous répondre.",
+    "errorEmail": "Cette adresse ne semble pas valide — vérifiez-la."
   },
   "expertiseDetail": {
     "domainsTitle": "Domaines d'intervention",
+    "ctaTitle": "Décrivez le site, nous revenons avec une étude.",
+    "backToIndex": "Tous les services",
+    "othersTitle": "Les autres services",
+    "keyFigures": "Chiffres clés",
     "reseaux-telecom": {
-      "eyebrow": "Expertises Foutset Africa",
-      "heroWord": "CONNECTER",
+      "metaDescription": "Déploiement VSAT (bandes C, Ku, Ka), diffusion TV par satellite, stations de base GSM/3G/4G LTE, installation de pylônes et mâts clé en main et sécurité réseau au Cameroun et en Afrique centrale.",
       "heroSubtitle": "Concevoir, déployer et sécuriser les réseaux qui irriguent le continent.",
-      "introTitle": "L'Expertise Réseaux & Télécom",
-      "introParagraph1": "Foutset Africa conçoit, installe et maintient des infrastructures de télécommunications complètes : liaisons satellitaires VSAT, stations de base mobiles, faisceaux hertziens et réseaux d'entreprise. Notre équipe intervient sur l'ensemble de la chaîne, de l'étude technique à la mise en service.",
-      "introParagraph2": "Nous accompagnons opérateurs, institutions et entreprises dans le déploiement de solutions de connectivité résilientes, y compris dans les zones les plus enclavées où la fibre et le réseau terrestre ne suffisent pas.",
-      "domainsSubtitle": "Des solutions techniques complètes, de la liaison satellite à la sécurisation des sites.",
-      "feature1Title": "Déploiement VSAT",
-      "feature1Description": "Installation de terminaux VSAT en bandes C, Ku et Ka pour une connectivité internet dédiée ou partagée, avec des débits pouvant atteindre 200 Mbps.",
-      "feature2Title": "Réseaux Mobiles & BTS",
-      "feature2Description": "Déploiement de stations de base GSM/3G/4G LTE et de systèmes hertziens, avec optimisation RF, drive testing et suivi des indicateurs de performance.",
-      "compactTitle": "Infrastructure Réseau",
-      "compactDescription": "Déploiement VoIP, LAN/WLAN et infrastructures serveurs pour les réseaux d'entreprise.",
-      "darkTitle": "Sécurité & Surveillance",
-      "darkDescription": "Installation de systèmes d'alarme, de protection foudre et de vidéosurveillance pour sécuriser vos sites techniques.",
+      "introTitle": "Le service Réseaux & Télécom",
+      "introParagraph1": "Foutset Africa conçoit, installe et maintient des infrastructures de télécommunications complètes : liaisons satellitaires VSAT en bandes C, Ku et Ka, stations de base GSM/3G/4G LTE, faisceaux hertziens et installations de pylônes et mâts clé en main. Notre équipe intervient sur l'ensemble de la chaîne, de l'étude technique à la mise en service.",
+      "introParagraph2": "Notre capacité satellitaire couvre aussi la diffusion télévisuelle Direct-to-Home (DTH) de contenus SDTV, HDTV et UHDTV, ainsi que le backhaul GSM par satellite, qui étend le trafic mobile dans les zones les plus enclavées où la fibre et le réseau hertzien terrestre ne suffisent pas.",
+      "domainsSubtitle": "Des solutions techniques complètes, de la liaison satellite et des réseaux mobiles à la sécurisation des sites.",
+      "feature1Title": "VSAT & solutions satellitaires",
+      "feature1Description": "Installation de terminaux VSAT en bandes C, Ku et Ka en technologie SCPC ou TDM/TDMA, avec des débits pouvant atteindre 200 Mbps et des taux de contention ajustables jusqu'à 1:20 après étude de bilan de liaison, ainsi que diffusion TV DTH (SDTV, HDTV, UHDTV) en mode autonome ou hybride avec internet terrestre, et backhaul GSM par satellite.",
+      "feature2Title": "Réseaux mobiles & BTS",
+      "feature2Description": "Déploiement de stations de base GSM/3G/4G LTE et de systèmes hertziens, avec optimisation RF, drive testing et suivi des indicateurs de performance (KPI).",
+      "compactTitle": "Infrastructure réseau & pylônes",
+      "compactDescription": "Déploiement VoIP, LAN/WLAN et infrastructures serveurs, ainsi que l'installation de pylônes et mâts clé en main pour les réseaux d'entreprise et d'opérateurs.",
+      "darkTitle": "Sécurité & surveillance",
+      "darkDescription": "Installation de systèmes d'alarme, de protection foudre et de systèmes de vidéosurveillance (CCTV) pour sécuriser vos sites techniques.",
       "closingTitle": "La connectivité comme levier de croissance.",
       "closingParagraph": "Dans un monde hyperconnecté, l'infrastructure réseau n'est plus un centre de coût mais l'épine dorsale de votre développement. Nous concevons des architectures robustes, capables de soutenir vos ambitions futures.",
       "ctaLabel": "Parlons de votre projet réseau"
     },
-    "energie": {
-      "eyebrow": "Expertises Foutset Africa",
-      "heroWord": "ALIMENTER",
-      "heroSubtitle": "Des solutions énergétiques fiables pour un continent en mouvement.",
-      "introTitle": "L'Expertise Énergie",
-      "introParagraph1": "Foutset Africa conçoit et installe des solutions énergétiques adaptées aux contraintes du terrain : systèmes photovoltaïques, solutions hybrides et dispositifs de secours électrique, pour garantir la continuité de service des sites industriels, télécoms et institutionnels.",
-      "introParagraph2": "Notre approche privilégie des installations dimensionnées au plus juste, alliant performance, durabilité et maîtrise des coûts d'exploitation sur le long terme.",
-      "domainsSubtitle": "De la conception à la maintenance, une chaîne complète de solutions énergétiques.",
-      "feature1Title": "Solutions Solaires Photovoltaïques",
-      "feature1Description": "Conception et installation de systèmes solaires PV pour sites industriels, télécoms et résidentiels.",
-      "feature2Title": "Systèmes de Secours Électrique",
-      "feature2Description": "Installation de solutions de backup pour garantir la continuité d'alimentation de vos infrastructures critiques.",
-      "compactTitle": "Maintenance Énergétique",
-      "compactDescription": "Suivi préventif et curatif des installations pour une performance durable.",
-      "darkTitle": "Études & Dimensionnement",
-      "darkDescription": "Audits énergétiques et dimensionnement sur mesure adaptés à vos contraintes techniques et budgétaires.",
-      "closingTitle": "L'énergie, condition de toute transformation.",
-      "closingParagraph": "Aucune infrastructure ne fonctionne sans une alimentation fiable. Nous concevons des solutions énergétiques pensées pour durer, dans des environnements où la continuité de service est non négociable.",
-      "ctaLabel": "Parlons de votre projet énergie"
-    },
     "formation": {
-      "eyebrow": "Expertises Foutset Africa",
-      "heroWord": "TRANSMETTRE",
+      "metaDescription": "Formation technique pratique à l'installation, la mise en service et la maintenance VSAT, réseaux mobiles et infrastructures télécoms, pour un service local durable au Cameroun et en Afrique centrale.",
       "heroSubtitle": "Renforcer les compétences techniques locales, durablement.",
-      "introTitle": "L'Expertise Formation",
-      "introParagraph1": "Foutset Africa forme les équipes techniques à l'installation, la mise en service et la maintenance des systèmes qu'elle déploie : réseaux, télécoms, énergie solaire et infrastructures VSAT. Nos formations combinent apports théoriques et mise en pratique sur le terrain.",
-      "introParagraph2": "Notre objectif : transférer une expertise durable aux équipes locales, pour garantir l'autonomie opérationnelle de nos clients et partenaires sur le long terme.",
-      "domainsSubtitle": "Des parcours de formation technique, alignés sur nos domaines d'expertise.",
-      "feature1Title": "Formation VSAT",
-      "feature1Description": "Installation, mise en service et maintenance des systèmes satellitaires VSAT.",
-      "feature2Title": "Formation Énergie Solaire",
-      "feature2Description": "Installation et maintenance des systèmes photovoltaïques et de secours électrique.",
-      "compactTitle": "Formation Infrastructure Réseau",
-      "compactDescription": "Mise en service et maintenance des réseaux et infrastructures télécoms.",
-      "darkTitle": "Transfert de Compétences",
+      "introTitle": "Le service Formation",
+      "introParagraph1": "Foutset Africa forme les équipes techniques à l'installation, la mise en service et la maintenance des systèmes qu'elle déploie : réseaux, télécoms, stations de base mobiles et infrastructures VSAT. Nos formations combinent apports théoriques et mise en pratique sur le terrain.",
+      "introParagraph2": "Notre objectif : assurer un service durable auprès des équipes locales, pour garantir l'autonomie opérationnelle de nos clients et partenaires sur le long terme.",
+      "domainsSubtitle": "Des parcours de formation technique, alignés sur nos domaines de service.",
+      "feature1Title": "Formation systèmes VSAT",
+      "feature1Description": "Formation à l'installation, la mise en service et la maintenance des systèmes satellitaires VSAT.",
+      "feature2Title": "Formation réseaux mobiles",
+      "feature2Description": "Formation à l'installation, la mise en service et la maintenance des stations de base GSM/3G/4G LTE et des faisceaux hertziens.",
+      "compactTitle": "Formation infrastructure réseau",
+      "compactDescription": "Formation à la mise en service et la maintenance des réseaux et infrastructures télécoms.",
+      "darkTitle": "Transfert de compétences",
       "darkDescription": "Accompagnement terrain et certification des équipes locales pour une autonomie durable.",
       "closingTitle": "Des compétences qui restent, bien après le projet.",
       "closingParagraph": "Former, c'est investir dans la pérennité des infrastructures. Chaque intervention est aussi l'occasion de renforcer durablement les capacités techniques de nos clients et partenaires.",
       "ctaLabel": "Parlons de votre projet de formation"
     },
     "prestation": {
-      "eyebrow": "Expertises Foutset Africa",
-      "heroWord": "ACCOMPAGNER",
-      "heroSubtitle": "L'expertise technique et humaine au service de vos projets.",
-      "introTitle": "L'Expertise Prestation",
-      "introParagraph1": "Foutset Africa met à disposition des techniciens et ingénieurs qualifiés pour renforcer vos équipes sur le terrain, ainsi qu'un accompagnement en conseil technique sur vos projets d'infrastructures énergie et télécoms.",
-      "introParagraph2": "De l'étude de faisabilité à la recette finale, nous pilotons chaque intervention avec une méthodologie rigoureuse, garantissant le respect des délais et des standards de sécurité.",
+      "metaDescription": "Ingénieurs et techniciens qualifiés, conseil technique et fourniture d'équipements d'infrastructures télécoms et TIC, au Cameroun et en Afrique centrale.",
+      "heroSubtitle": "Un service technique et humain, dédié à vos projets.",
+      "introTitle": "Le service Prestation",
+      "introParagraph1": "Foutset Africa propose un conseil général sur vos projets d'infrastructures télécoms et TIC, ainsi que des techniciens et ingénieurs qualifiés pour renforcer vos équipes sur le terrain.",
+      "introParagraph2": "De l'étude de faisabilité à la recette finale, nous pilotons chaque intervention avec une méthodologie rigoureuse, garantissant le respect des délais et des standards de sécurité. Nous assurons aussi la fourniture des équipements d'infrastructures télécoms et informatiques nécessaires à vos projets.",
       "domainsSubtitle": "Un accompagnement technique et humain, à chaque étape de vos projets.",
-      "feature1Title": "Conseil Technique",
-      "feature1Description": "Accompagnement en ingénierie et conseil général sur vos infrastructures énergie et TIC.",
-      "feature2Title": "Personnel Qualifié",
+      "feature1Title": "Conseil technique",
+      "feature1Description": "Conseil général en ingénierie sur vos produits et projets d'infrastructures télécoms et TIC.",
+      "feature2Title": "Personnel qualifié",
       "feature2Description": "Mise à disposition de techniciens et ingénieurs spécialisés pour renforcer vos équipes.",
-      "compactTitle": "Gestion de Projet",
-      "compactDescription": "Pilotage intégré de vos projets, de l'étude à la mise en service.",
-      "darkTitle": "Méthodologies Agiles",
+      "compactTitle": "Fourniture d'équipements",
+      "compactDescription": "Sourcing et fourniture d'équipements d'infrastructures télécoms et informatiques, y compris systèmes VSAT, pour vos projets.",
+      "darkTitle": "Méthodologies agiles",
       "darkDescription": "Des méthodes de gestion de projet garantissant le respect des délais et des normes de sécurité internationales.",
       "closingTitle": "Votre projet, notre rigueur d'exécution.",
       "closingParagraph": "Chaque prestation est pilotée avec la même exigence : des méthodologies éprouvées, une équipe qualifiée et un engagement sur les délais.",
       "ctaLabel": "Parlons de votre besoin en prestation"
     },
-    "import-export": {
-      "eyebrow": "Expertises Foutset Africa",
-      "heroWord": "APPROVISIONNER",
-      "heroSubtitle": "Le bon matériel technique, au bon endroit, au bon moment.",
-      "introTitle": "L'Expertise Import/Export",
-      "introParagraph1": "Foutset Africa assure l'approvisionnement et la logistique des équipements techniques nécessaires à vos projets d'énergie et de télécommunications : matériel réseau, systèmes VSAT, équipements solaires et infrastructures de sécurité.",
-      "introParagraph2": "Nous nous appuyons sur un réseau de fournisseurs internationaux qualifiés pour garantir la disponibilité, la conformité et la traçabilité du matériel livré sur vos sites.",
+    "equipment-supply": {
+      "metaDescription": "Fourniture d'équipements télécoms, VSAT, réseau et sécurité, issus de fournisseurs qualifiés et livrés sur site au Cameroun et en Afrique centrale, avec contrôle qualité à chaque étape.",
+      "heroSubtitle": "Le bon équipement, au bon endroit, au bon moment.",
+      "introTitle": "Le service Fourniture d'équipements",
+      "introParagraph1": "Foutset Africa fournit les équipements d'infrastructures télécoms et TIC nécessaires à vos projets : matériel réseau, systèmes VSAT, pylônes et mâts, solaire et alimentation de secours, et systèmes de sécurité.",
+      "introParagraph2": "Nous nous appuyons sur un réseau de fournisseurs qualifiés pour garantir la disponibilité, la conformité et la traçabilité des équipements livrés sur vos sites.",
       "domainsSubtitle": "De la sélection des équipements à leur livraison sur site.",
-      "feature1Title": "Approvisionnement Matériel",
-      "feature1Description": "Fourniture d'équipements télécoms, énergie et TIC, sélectionnés selon vos cahiers des charges.",
-      "feature2Title": "Logistique Spécialisée",
-      "feature2Description": "Import, export et acheminement de matériel technique jusqu'à vos sites, y compris dans les zones les plus reculées.",
-      "compactTitle": "Contrôle Qualité",
+      "feature1Title": "Approvisionnement en équipements",
+      "feature1Description": "Fourniture d'infrastructures IT/télécoms, de systèmes VSAT et solaires, sélectionnés selon vos cahiers des charges.",
+      "feature2Title": "Livraison sur site",
+      "feature2Description": "Acheminement et livraison de matériel technique jusqu'à vos sites, y compris dans les zones les plus reculées.",
+      "compactTitle": "Contrôle qualité",
       "compactDescription": "Vérification de conformité du matériel avant livraison sur site.",
-      "darkTitle": "Partenariats Fournisseurs",
-      "darkDescription": "Un réseau de fournisseurs internationaux qualifiés pour garantir disponibilité et traçabilité.",
-      "closingTitle": "La bonne pièce, au bon moment, sur le terrain.",
-      "closingParagraph": "Un projet bien exécuté dépend aussi d'une chaîne d'approvisionnement fiable. Nous sécurisons la disponibilité de votre matériel technique, du fournisseur jusqu'au site.",
-      "ctaLabel": "Parlons de votre besoin en approvisionnement"
+      "darkTitle": "Partenariats fournisseurs",
+      "darkDescription": "Un réseau de fournisseurs qualifiés pour garantir disponibilité et traçabilité.",
+      "closingTitle": "Le bon équipement, sur site, à temps.",
+      "closingParagraph": "Un projet bien exécuté dépend aussi d'une chaîne d'approvisionnement fiable. Nous sécurisons la disponibilité de vos équipements, du fournisseur jusqu'au site.",
+      "ctaLabel": "Parlons de votre besoin en équipements"
+    },
+    "energie": {
+      "metaDescription": "Énergie solaire et alimentation de secours pour sites télécoms et installations isolées : fourniture, installation et maintenance, au Cameroun et en Afrique centrale.",
+      "heroSubtitle": "Une alimentation fiable pour les sites loin du réseau électrique.",
+      "introTitle": "Le service Énergie",
+      "introParagraph1": "Un réseau ne vaut que par l'énergie qui l'alimente. Foutset Africa fournit et installe des systèmes solaires et d'alimentation de secours pour les sites télécoms, les installations isolées et les équipements qu'ils portent.",
+      "introParagraph2": "Nous dimensionnons le système selon la charge et le site, nous l'installons et le remettons avec sa documentation : vos sites continuent de fonctionner quand le réseau électrique fait défaut.",
+      "domainsSubtitle": "Une énergie qui tient, de l'étude à la maintenance.",
+      "feature1Title": "Systèmes solaires",
+      "feature1Description": "Systèmes d'énergie solaire dimensionnés pour les sites télécoms et les installations isolées.",
+      "feature2Title": "Alimentation de secours",
+      "feature2Description": "Batteries et alimentation de secours pour maintenir les équipements en service pendant les coupures.",
+      "compactTitle": "Maintenance",
+      "compactDescription": "Maintenance préventive et corrective des systèmes d'énergie que nous installons.",
+      "darkTitle": "Dimensionné pour le site",
+      "darkDescription": "Chaque installation est dimensionnée selon la charge réelle et les conditions du site.",
+      "closingTitle": "Le site allumé, quoi que fasse le réseau électrique.",
+      "closingParagraph": "Décrivez le site et sa charge. Nous revenons avec une proposition de système d'énergie et un devis.",
+      "ctaLabel": "Parlons de votre besoin en énergie"
+    },
+    "diffusion-tv-vsat": {
+      "metaDescription": "Diffusion TV Direct-to-Home (SDTV, HDTV, UHDTV) et connectivité internet VSAT en bandes C et Ku, dédiée ou partagée, jusqu'à 200 Mbps, au Cameroun et en Afrique centrale.",
+      "heroSubtitle": "Un bouquet télévisuel et une connexion internet, où que soit le site.",
+      "introTitle": "Le service Diffusion TV & VSAT",
+      "introParagraph1": "Foutset Africa conçoit et exploite des solutions de diffusion télévisuelle Direct-to-Home (DTH) en SDTV, HDTV et UHDTV, ainsi que des liaisons internet VSAT dédiées ou partagées, en bandes C et Ku.",
+      "introParagraph2": "Un bouquet de chaînes peut être composé et diffusé dans l'empreinte du satellite, en mode autonome ou hybride avec l'internet terrestre ; la connectivité VSAT s'ajuste en débit et en taille d'antenne après étude de bilan de liaison.",
+      "domainsSubtitle": "De la diffusion télévisuelle à la connectivité internet, en bandes C et Ku.",
+      "feature1Title": "Diffusion TV DTH",
+      "feature1Description": "Diffusion Direct-to-Home de contenus SDTV, HDTV et UHDTV, avec les standards de compression actuels, en autonome ou en hybride avec l'internet terrestre.",
+      "feature2Title": "Connectivité VSAT",
+      "feature2Description": "Liaisons internet dédiées ou partagées en SCPC ou TDM/TDMA, jusqu'à 200 Mbps, avec taux de contention ajustable jusqu'à 1:20.",
+      "compactTitle": "Étude de bilan de liaison",
+      "compactDescription": "Dimensionnement de l'antenne et de la bande passante après analyse du bilan de liaison satellite.",
+      "darkTitle": "Bandes C & Ku",
+      "darkDescription": "Solutions déployées en bande C ou Ku, selon la couverture et les conditions climatiques du site.",
+      "closingTitle": "Un signal fiable, jusqu'au site le plus isolé.",
+      "closingParagraph": "Diffusion et connectivité s'appuient sur la même infrastructure satellitaire : nous dimensionnons la solution la mieux adaptée à votre site et à votre usage.",
+      "ctaLabel": "Parlons de votre projet TV / VSAT"
+    }
+  },
+  "loading": {
+    "label": "Chargement de la page…"
+  },
+  "notFound": {
+    "metaTitle": "Page introuvable — hors couverture",
+    "eyebrow": "Erreur 404 · Hors couverture",
+    "title": "Cette page est sur Null Island.",
+    "body": "0° N, 0° E : le point du golfe de Guinée où atterrissent les coordonnées qui n'existent pas. Aucune liaison ne part d'ici — l'adresse a peut-être été mal saisie, ou la page a changé de place.",
+    "signalLabel": "Signal",
+    "signalLost": "aucun",
+    "signalBack": "rétabli",
+    "home": "Rétablir la liaison",
+    "quote": "Demander un devis",
+    "relaysLabel": "Relais disponibles",
+    "mapTitle": "Null Island, à 0° de latitude et 0° de longitude, en pleine mer dans le golfe de Guinée, au sud-ouest de Douala.",
+    "mapPoint": "Null Island",
+    "mapCaption": "Null Island — {distance} km de Douala, en pleine mer. Pas une antenne à l'horizon."
+  },
+  "productsPage": {
+    "metaTitle": "Produits",
+    "metaDescription": "Terminaux VSAT, équipements de diffusion TV par satellite et liaisons de backhauling GSM, fournis et installés par FOUTSET AFRICA au Cameroun et en Afrique centrale.",
+    "title": "Nos produits",
+    "subtitle": "Équipements et systèmes clé en main pour les liaisons satellite, de diffusion et de réseau mobile, dimensionnés pour votre site et installés sur place.",
+    "tv": {
+      "eyebrow": "Solution TV",
+      "title": "Diffusion TV par satellite",
+      "lead": "La télévision par satellite, de la tête de réseau à la parabole.",
+      "detail": "FOUTSET AFRICA fournit et installe les équipements de diffusion télévisuelle par satellite en direct-to-home (DTH) : têtes de réseau, encodeurs, systèmes d'émission et de réception, en SDTV, HDTV et UHDTV, pour les opérateurs comme pour les plateformes dédiées ou partagées.",
+      "points": [
+        "Têtes de réseau et encodage",
+        "Systèmes d'émission et de réception",
+        "SDTV, HDTV et UHDTV"
+      ]
+    },
+    "vsat": {
+      "eyebrow": "Solution VSAT",
+      "title": "Connectivité VSAT",
+      "lead": "L'internet et les liaisons de données par satellite, là où le réseau terrestre s'arrête.",
+      "detail": "Terminaux, modems et antennes VSAT en bandes C, Ku et Ka, dimensionnés selon le débit et le taux de contention du site, pour l'accès internet, les réseaux d'entreprise et la télésurveillance.",
+      "points": [
+        "Terminaux bandes C, Ku et Ka",
+        "Débit jusqu'à 200 Mbps",
+        "Dimensionné selon la contention du site"
+      ]
+    },
+    "gsm": {
+      "eyebrow": "Backhauling GSM",
+      "title": "Backhauling GSM",
+      "lead": "La liaison qui ramène le trafic d'une station de base vers le cœur de réseau.",
+      "detail": "Liaisons de backhauling en faisceau hertzien et par satellite pour les stations de base GSM/3G/4G LTE, dimensionnées selon le trafic du site et sa distance au point de présence le plus proche.",
+      "points": [
+        "Liaisons hertziennes et satellite",
+        "Dimensionné selon le trafic",
+        "Installation clé en main"
+      ]
     }
   }
 }

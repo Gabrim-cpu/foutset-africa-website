@@ -1,88 +1,90 @@
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
+import PulseBeamsCta from "@/components/ui/PulseBeamsCta";
+import HeroVideo from "./HeroVideo";
+import HeroSpotlight from "./HeroSpotlight";
+
+/* Le premier écran.
+
+   Il portait le continent dessiné : un relevé au trait, tracé à la main dans
+   du SVG. Le client le lit comme un dessin — « on dirait qu'on l'a dessiné » —
+   et pour une maison qui pose des pylônes et des liaisons satellite, la
+   première image doit être le métier, pas sa carte.
+
+   La vision FOUTSET se montre en mouvement : le globe de nuit, l'Afrique qui
+   s'allume, les liaisons qui se tissent entre ses villes. La vidéo est encodée
+   en boucle sans couture (la dernière seconde se fond dans la première), en
+   WebM puis MP4, ~300 Ko chacune. L'original non compressé vit dans
+   Assets/video/, jamais dans public/.
+
+   L'image fixe est la première image de la boucle : elle s'affiche tout de
+   suite, porte le LCP, et la vidéo se fond par-dessus sans saut. Voir
+   HeroVideo.
+
+   Le noir de l'espace ne doit pas trouer l'encre bleue : le média se pose en
+   `screen` sur le bleu abysse, donc le noir rend le fond de marque et les
+   lumières s'ajoutent. Pas `lighten` : le continent est d'un bleu nuit plus
+   sombre que le fond, et `lighten` l'effaçait — l'Afrique disparaissait.
+
+   La boucle est encodée en 1920×1080 depuis l'original (768×432), avec un
+   agrandissement lanczos et un léger renforcement. Une source plus nette
+   reste le seul vrai gain possible.
+
+   Aucun voile, aucun dégradé : la vidéo se montre telle quelle. Elle est
+   assez sombre pour porter le titre en blanc, et le bandeau passe lui-même en
+   papier tant qu'il flotte dessus (voir Navigation).
+
+   Le titre, sa phrase, et une seule action : « Demander un devis », en
+   pastille à liaisons pulsées (voir PulseBeamsCta). Ni lieu, ni bande des métiers : le
+   bandeau porte déjà les expertises. */
+
+const VIDEO_SOURCES = ["/video/hero.webm", "/video/hero.mp4"];
+const POSTER = "/images/hero-poster.jpg";
 
 export default async function Hero() {
   const t = await getTranslations("hero");
 
   return (
-    <section className="relative overflow-hidden bg-[#F5F7FA] pt-32 pb-20 lg:pt-40 lg:pb-28">
-      <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
-        <div className="mb-6 flex items-center justify-center gap-3 text-xs font-semibold uppercase tracking-[0.15em] text-[#2A78C0]">
-          <span className="h-px w-6 bg-[#F07818]" />
-          {t("eyebrow")}
-          <span className="h-px w-6 bg-[#F07818]" />
-        </div>
+    <section className="relative isolate flex h-svh min-h-[32rem] flex-col justify-end overflow-hidden bg-blue-abyss">
+      <div aria-hidden className="absolute inset-0 -z-10 bg-blue-abyss">
+        {/* Sous lg, la vidéo ne couvre plus tout l'écran : en portrait, un
+            cadre 16:9 recadré plein écran ne laissait qu'une bande de traits,
+            sans globe ni Afrique. Elle tient un bloc carré (4:3 sur tablette)
+            sous le bandeau, qui montre le continent entier, et se fond vers
+            le bas dans l'encre où le titre se pose.
 
-        <h1 className="text-4xl uppercase leading-[1.05] tracking-tight text-[#1A1A1A] sm:text-5xl lg:text-6xl">
-          {t("headlineLine1")}
-          <br />
-          {t("headlineLine2")}
-          <br />
-          {t("headlineLine3")}
-        </h1>
-
-        <p className="mx-auto mt-6 max-w-md text-[#555555] leading-relaxed">
-          {t("subtitle")}
-        </p>
-
-        <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <a
-            href="#expertises"
-            className="inline-flex items-center rounded-full bg-[#F07818] px-6 py-3.5 text-sm font-semibold uppercase tracking-wide text-white transition-all hover:bg-[#c9640f]"
-          >
-            {t("primaryCta")}
-          </a>
-          <Link
-            href="/contact"
-            className="inline-flex items-center rounded-full border border-[#2A78C0] px-6 py-3.5 text-sm font-semibold uppercase tracking-wide text-[#2A78C0] transition-all hover:bg-[#2A78C0] hover:text-white"
-          >
-            {t("secondaryCta")}
-          </Link>
+            Au large, le globe glisse à droite et déborde du cadre : la colonne
+            de texte reste sur l'encre, et la courbure du globe se lit encore.
+            Le bord gauche de la vidéo est de l'espace noir, rendu bleu abysse
+            par le `screen` : la coupe ne se voit pas. */}
+        <div className="absolute inset-x-0 top-16 aspect-square mix-blend-screen [mask-image:linear-gradient(to_bottom,black_65%,transparent)] sm:aspect-[4/3] lg:inset-y-0 lg:top-0 lg:right-[-10%] lg:left-[20%] lg:aspect-auto lg:[mask-image:none]">
+          <Image
+            src={POSTER}
+            alt=""
+            fill
+            priority
+            sizes="(min-width: 1024px) 70vw, 100vw"
+            className="object-cover object-center"
+          />
+          <HeroVideo sources={VIDEO_SOURCES} />
         </div>
       </div>
 
-      <div className="mx-auto mt-16 max-w-5xl px-6 lg:px-8">
-        <div className="relative aspect-[16/8] overflow-hidden rounded-tl-[3rem] rounded-br-[3rem] bg-gradient-to-br from-[#2A78C0] to-[#1A1A1A]">
-          <div className="flex h-full w-full items-center justify-center text-white/20">
-            <svg
-              className="h-24 w-24"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={0.75}
-                d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-6h6v6M9 12h.01M15 12h.01M9 9h.01M15 9h.01"
-              />
-            </svg>
-          </div>
+      <HeroSpotlight />
 
-          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-6 pt-16">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-white/70">
-              {t("projectLabel")}
-            </p>
-            <p className="mt-1 text-lg font-semibold text-white">
-              {t("projectName")}
-            </p>
-          </div>
+      <div className="mx-auto w-full max-w-[92rem] px-6 pt-40 pb-16 lg:px-10 lg:pt-48 lg:pb-24 xl:px-16">
+        <h1 className="hero-rise max-w-[20ch] text-paper [--enter-delay:200ms]">{t("headline")}</h1>
 
-          <span className="absolute bottom-6 right-6 flex h-10 w-10 items-center justify-center rounded-full bg-[#F07818] text-white">
-            <svg
-              className="h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </span>
+        <p className="hero-rise mt-8 max-w-[54ch] [--enter-delay:420ms] text-[1.0625rem] whitespace-pre-line text-blue-wash lg:mt-10 lg:text-[1.125rem]">
+          {t.rich("subtitle", {
+            brand: (chunks) => <strong className="text-blue">{chunks}</strong>,
+            accent: (chunks) => <strong className="text-orange">{chunks}</strong>,
+            b: (chunks) => <strong>{chunks}</strong>,
+          })}
+        </p>
+
+        <div className="hero-rise mt-10 [--enter-delay:640ms] lg:mt-12">
+          <PulseBeamsCta href="/contact">{t("cta")}</PulseBeamsCta>
         </div>
       </div>
     </section>

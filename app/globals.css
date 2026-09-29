@@ -1,41 +1,606 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #1a1a1a;
+/* ---------------------------------------------------------------------------
+   FOUTSET AFRICA — feuille de couverture.
+
+   Deux plaques d'encre sur un papier de carte bleu-gris. Le bleu porte les
+   champs de zone à l'échelle de la page ; l'orange est la seconde plaque :
+   marqueur, valeur mesurée, action.
+
+   Contraste, mesuré et non supposé :
+     ink   sur sheet  14.3:1      body sur sheet   6.1:1
+     blue-deep sur sheet 7.3:1    ink sur orange   5.8:1
+   Le bleu de marque (#2A78C0) plafonne à 4.0:1 sur le papier et l'orange à
+   2.8:1 : ce sont des encres d'aplat, jamais du texte courant. Aucun texte
+   fin ne se pose en #2A78C0 ni en #F07818.
+
+   TOUT ce qui suit vit dans @layer base ou @layer components. Sans couche,
+   ces règles battraient chaque utilitaire Tailwind quelle que soit la
+   spécificité — le CSS non-couché gagne toujours sur le couché — et un
+   `text-paper` sur un bouton n'aurait aucun effet.
+--------------------------------------------------------------------------- */
+
+@theme {
+  /* Les deux encres de marque. Intouchables. */
+  --color-blue: #2a78c0;
+  --color-orange: #f07818;
+
+  /* Teintes dérivées des deux encres. Aucune teinte nouvelle. */
+  --color-blue-deep: #1b4f80;
+  --color-blue-abyss: #12314f;
+  --color-blue-tint: #a8c8e6;
+  --color-blue-wash: #d3e2f1;
+  /* Le bleu de marque éclairci pour le texte fin sur la nuit du pied :
+     #2A78C0 n'y tient que 4.2:1, celui-ci 6.1:1. */
+  --color-blue-bright: #4a94d8;
+  --color-orange-deep: #c9640f;
+
+  /* Papier et encre noire. */
+  --color-sheet: #eceff2;
+  --color-sheet-deep: #dfe5ea;
+  --color-paper: #ffffff;
+  --color-ink: #14202b;
+  /* L'encre poussée au noir : le fond du pied, sur lequel le noir de la
+     vidéo se fond. */
+  --color-night: #06090d;
+  --color-body: #4a5a68;
+  --color-rule: #c3cdd6;
+  --color-rule-soft: #dae1e7;
+
+  --font-display: var(--font-sora), "Sora", system-ui, sans-serif;
+  --font-sans: var(--font-manrope), "Manrope", system-ui, sans-serif;
+  --font-data: var(--font-mono), "JetBrains Mono", ui-monospace, monospace;
+
+  /* La courbe d'encrage : sortie exponentielle, une seule pour tout le site. */
+  --ease-ink: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Un seul rayon, léger, demandé par le client. Boutons, onglets, champs et
+     cartouches le partagent : deux rayons différents feraient deux systèmes. */
+  --radius-sheet: 4px;
 }
 
-@theme inline {
-  --font-heading: var(--font-merriweather), Georgia, serif;
-  --font-subheading: var(--font-lora), Georgia, serif;
-  --font-sans: var(--font-plus-jakarta-sans), Arial, Helvetica, sans-serif;
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-sheet);
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-sheet);
+    color: var(--color-body);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  h1 {
+    font-size: clamp(2.375rem, 6vw, 4.75rem);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1.02;
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 3.4vw, 2.75rem);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    line-height: 1.08;
+  }
+
+  h3 {
+    font-size: 1.1875rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+  }
+
+  h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  /* Plus d'air au-dessus d'un titre qu'en dessous. */
+  :is(h2, h3, h4) + p {
+    margin-top: 0.75rem;
+  }
+
+  a {
+    color: var(--color-blue-deep);
+    text-underline-offset: 0.22em;
+    text-decoration-thickness: 1px;
+  }
+
+  /* Les surfaces que nous n'avons pas dessinées portent le design elles aussi. */
+  ::selection {
+    background: var(--color-orange);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-orange);
+    outline-offset: 3px;
+  }
+
+  * {
+    caret-color: var(--color-orange);
+  }
+
+  @supports (scrollbar-color: auto) {
+    html {
+      scrollbar-color: var(--color-rule) var(--color-sheet);
+      scrollbar-width: thin;
+    }
+  }
 }
 
-html {
-  scroll-behavior: smooth;
+@layer components {
+  /* Les libellés de feuille : petites capitales espacées, comme sur une carte
+     marine. Ce sont des <p>/<span>, jamais des titres. */
+  .sheet-label {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: var(--color-blue-deep);
+  }
+
+  /* Valeurs réellement mesurées : bandes, débits, distances, taux. Le mono ne
+     sert qu'à ça — jamais comme déguisement « technique ». Sans couleur : elle
+     se pose à l'appel, correcte sur le papier comme sur l'encre du pied. */
+  .measured {
+    font-family: var(--font-data);
+    font-size: 0.8125rem;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+
+  /* Le cartouche : un bloc réglé sur le papier, la brique de tout le site. */
+  .cartouche {
+    background: var(--color-paper);
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-sheet);
+  }
+
+  /* Le graticule, tracé en CSS : lignes tous les 5°, comme sur la carte.
+     La règle du détecteur réserve explicitement ce motif aux surfaces de
+     carte, de plan ou de mesure. C'en est une. */
+  /* impeccable-disable-next-line codex-grid-background -- surface de carte : graticule du relevé, usage prévu par la règle */
+  .graticule {
+    background-image:
+      linear-gradient(
+        to right,
+        color-mix(in srgb, var(--color-blue) 12%, transparent) 0 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--color-blue) 12%, transparent) 0 1px,
+        transparent 1px
+      );
+    background-size: 88px 88px;
+  }
 }
 
-body {
-  margin: 0;
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
+/* --- Bandeau : le filet au survol ---------------------------------------------
+   Un trait orange, fin et court, se pose juste sous le libellé au survol, au
+   focus clavier et sur la page ouverte (`aria-current`) — pas de halo, pas de
+   cône : juste la ligne, comme un soulignement qui se déploie depuis le
+   centre.
+--------------------------------------------------------------------------- */
+
+@layer components {
+  .nav-underline {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: var(--color-ink);
+    transition: color 200ms ease;
+  }
+
+  .nav-underline::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -0.3rem;
+    width: 1.25rem;
+    height: 2px;
+    border-radius: 1px;
+    background: var(--color-orange);
+    opacity: 0;
+    transform: translateX(-50%) scaleX(0.4);
+    transition:
+      opacity 200ms ease,
+      transform 300ms var(--ease-ink);
+  }
+
+  .nav-underline:is(:hover, :focus-visible, [aria-current], [data-open]) {
+    color: var(--color-orange);
+  }
+
+  .nav-underline:is(:hover, :focus-visible, [aria-current], [data-open])::after {
+    opacity: 1;
+    transform: translateX(-50%) scaleX(1);
+  }
+
+  .nav-underline:focus-visible {
+    outline-offset: 4px;
+  }
 }
 
-h1,
-h2 {
-  font-family: var(--font-heading);
-  font-weight: 700;
+/* --- Hero : le projecteur -----------------------------------------------------
+   Deux couches dans le même calque : un voile d'encre qui s'ouvre en cercle
+   autour du curseur, et un halo orange posé en `screen` au centre, qui fait
+   briller les liaisons de la vidéo. Éteint tant que le pointeur n'est pas sur
+   le hero (voir HeroSpotlight). Sous le texte, au-dessus du média.
+--------------------------------------------------------------------------- */
+
+@layer components {
+  .hero-spotlight,
+  .hero-spotlight-halo {
+    position: absolute;
+    inset: 0;
+    z-index: -5;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 500ms ease;
+  }
+
+  .hero-spotlight {
+    background: radial-gradient(
+      circle 22rem at var(--spot-x, 50%) var(--spot-y, 50%),
+      transparent 0%,
+      transparent 35%,
+      color-mix(in srgb, var(--color-blue-abyss) 55%, transparent) 100%
+    );
+  }
+
+  .hero-spotlight-halo {
+    mix-blend-mode: screen;
+    background: radial-gradient(
+      circle 14rem at var(--spot-x, 50%) var(--spot-y, 50%),
+      color-mix(in srgb, var(--color-orange) 30%, transparent) 0%,
+      color-mix(in srgb, var(--color-orange) 10%, transparent) 45%,
+      transparent 100%
+    );
+  }
+
+  .hero-spotlight[data-on],
+  .hero-spotlight-halo[data-on] {
+    opacity: 1;
+  }
 }
 
-h3,
-h4 {
-  font-family: var(--font-subheading);
-  font-weight: 400;
+/* --- Bandeau défilant (voir Ticker) -----------------------------------------
+   La piste porte deux copies de la rangée et glisse de -50 % : la seconde
+   copie prend la place exacte de la première, la boucle est invisible. Les
+   bords s'estompent pour que la rangée entre et sorte sans coupure nette.
+--------------------------------------------------------------------------- */
+
+@layer components {
+  .ticker {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, var(--color-ink) 6%, var(--color-ink) 94%, transparent);
+    mask-image: linear-gradient(90deg, transparent, var(--color-ink) 6%, var(--color-ink) 94%, transparent);
+  }
+
+  .ticker-track {
+    display: flex;
+    width: max-content;
+    animation: ticker-run 38s linear infinite;
+  }
+
+  .ticker:hover .ticker-track {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ticker-track {
+      animation: none !important;
+    }
+  }
 }
 
-button,
-input,
-textarea {
-  font-family: var(--font-sans);
+@keyframes ticker-run {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* --- Encrage : la seule chose qui bouge -------------------------------------
+   Les contours s'encrent d'un passage, le marqueur se tamponne. Tout part
+   d'un état visible : `backwards` ne masque qu'en amont de l'animation, donc
+   sans animation le contenu reste là.
+--------------------------------------------------------------------------- */
+
+@keyframes ink-stroke {
+  from {
+    stroke-dashoffset: var(--ink-length);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes ink-stamp {
+  0% {
+    opacity: 0;
+    transform: scale(0.72);
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes ink-settle {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Feuille 404 : hors couverture -----------------------------------------
+   Le sonar balaie, les échos partent de Null Island, les barres cherchent.
+   Viser « Rétablir la liaison » (survol ou focus clavier) fige la recherche :
+   barres pleines, arc orange tracé jusqu'à Douala. Tout passe par :has() sur
+   la section ; un navigateur qui ne le lit pas garde la page en recherche,
+   entière et utilisable.
+--------------------------------------------------------------------------- */
+
+@layer components {
+  .lost-signal .sonar-sweep {
+    transform-origin: 50px 50px;
+    animation: sonar-turn 2.8s linear infinite;
+  }
+
+  .lost-signal .sonar-ping {
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: scale(0);
+    opacity: 0;
+    animation: sonar-ping 2.4s var(--ease-ink) infinite;
+  }
+
+  .lost-signal .signal-bars > span {
+    background: var(--color-rule);
+    animation: signal-search 1.6s steps(1, end) infinite;
+    transition: background-color 200ms;
+  }
+
+  .lost-signal .signal-bars > span:nth-child(2) { animation-delay: 200ms; }
+  .lost-signal .signal-bars > span:nth-child(3) { animation-delay: 400ms; }
+  .lost-signal .signal-bars > span:nth-child(4) { animation-delay: 600ms; }
+
+  .lost-signal .signal-back {
+    display: none;
+  }
+
+  .lost-signal .relink-arc {
+    stroke-dashoffset: var(--relink-length);
+    transition: stroke-dashoffset 900ms var(--ease-ink);
+  }
+
+  .lost-signal:has(.relink-trigger:hover, .relink-trigger:focus-visible) {
+    .signal-bars > span {
+      animation: none;
+      background: var(--color-blue-deep);
+    }
+    .signal-lost {
+      display: none;
+    }
+    .signal-back {
+      display: inline;
+    }
+    .relink-arc {
+      stroke-dashoffset: 0;
+    }
+    .sonar-sweep,
+    .sonar-ping {
+      animation-play-state: paused;
+    }
+  }
+}
+
+@keyframes sonar-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sonar-ping {
+  0% {
+    transform: scale(0.1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/* Une barre s'allume un instant puis retombe : le poste cherche un signal
+   qu'il ne trouve pas. */
+@keyframes signal-search {
+  0%,
+  100% {
+    background: var(--color-rule);
+  }
+  25% {
+    background: var(--color-orange);
+  }
+}
+
+/* --- Squelettes : la feuille avant l'encre ---------------------------------
+   Un bloc de papier plus sombre, balayé d'une lueur lente de gauche à droite,
+   comme une feuille qui passe sous le scanner. Mêmes tons que le papier :
+   un squelette qui a sa propre couleur se lit comme du contenu.
+   Sur l'encre bleue (`.skeleton-ink`), le balayage passe en blanc voilé.
+--------------------------------------------------------------------------- */
+
+@layer components {
+  .skeleton {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-sheet-deep);
+    border-radius: var(--radius-sheet);
+    isolation: isolate;
+  }
+
+  .skeleton::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      color-mix(in srgb, var(--color-paper) 70%, transparent) 50%,
+      transparent 100%
+    );
+    animation: skeleton-sweep 1.6s var(--ease-ink) infinite;
+  }
+
+  .skeleton-ink {
+    background-color: color-mix(in srgb, var(--color-paper) 8%, transparent);
+  }
+
+  .skeleton-ink::after {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      color-mix(in srgb, var(--color-paper) 12%, transparent) 50%,
+      transparent 100%
+    );
+  }
+}
+
+@keyframes skeleton-sweep {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Sans balayage, le squelette respire à peine : il doit rester lisible
+     comme « en cours », pas comme un bloc vide. */
+  .skeleton::after {
+    animation: none !important;
+  }
+
+  .skeleton {
+    animation: skeleton-breathe 2s ease-in-out infinite alternate !important;
+  }
+}
+
+@keyframes skeleton-breathe {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Le bord tournant des boutons d'appel.
+
+   Un filet de lumière fait le tour du bouton : un dégradé conique dont l'angle
+   tourne, visible seulement dans la bordure de 2 px. Le remplissage est un
+   second calque posé sur la boîte intérieure, donc le texte et le survol ne
+   bougent pas. Chaque bouton fixe ses deux couleurs (--spin-fill, --spin-color).
+   La règle « moins d'animation » ci-dessus fige déjà la rotation. */
+@property --spin-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes spin-border {
+  to {
+    --spin-angle: 360deg;
+  }
+}
+
+.spin-border {
+  border: 2px solid transparent;
+  background:
+    linear-gradient(var(--spin-fill), var(--spin-fill)) padding-box,
+    conic-gradient(
+        from var(--spin-angle),
+        transparent 0 68%,
+        var(--spin-color) 100%
+      )
+      border-box;
+  animation: spin-border 3.2s linear infinite;
+}
+
+/* L'ouverture du site : le titre, sa phrase et l'appel se posent l'un après
+   l'autre, en montant de quelques pixels. Le bandeau, lui, apparaît en fondu.
+   Seuls le texte et le bandeau bougent : l'image d'ouverture reste opaque
+   d'emblée pour ne pas retarder le premier affichage. `backwards` garde
+   l'élément invisible pendant son délai, puis le rend à son état normal. */
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+.hero-rise {
+  animation: hero-rise 900ms var(--ease-ink) backwards;
+  animation-delay: var(--enter-delay, 0ms);
+}
+
+.header-enter {
+  animation: hero-fade 700ms ease-out 100ms backwards;
 }

@@ -1,39 +1,60 @@
-import type { DomainIcon } from "@/components/data/domain-icons";
-import { DomainIconGlyph } from "@/components/data/domain-icons";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
+import VideoHero from "@/components/sections/VideoHero";
 
-export default function DetailHero({
-  eyebrow,
-  word,
+/* L'ouverture de chaque expertise.
+
+   Sur la vidéo de l'accueil (voir VideoHero), le titre au centre, à la
+   demande du client : la discipline seule, en grand, puis la phrase. Le
+   verbe d'accroche (CONNECTER, FOURNIR...) qui la surmontait a été retiré
+   à la demande du client — il revenait sur chaque page et n'apportait
+   rien. Le bandeau défilant (chiffres clés ou domaines) tient le pied du
+   hero, en texte blanc sans fond.
+
+   Aucune icône au-dessus du titre : ni le symbole de légende au trait, ni
+   la pastille qui l'a remplacé — le client n'en veut pas. */
+
+export default async function DetailHero({
+  discipline,
   subtitle,
-  icon,
+  ticker,
 }: {
-  eyebrow: string;
-  word: string;
+  discipline: string;
   subtitle: string;
-  icon: DomainIcon;
+  ticker?: React.ReactNode;
 }) {
+  const tDetail = await getTranslations("expertiseDetail");
+
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-[#2A78C0] to-[#1A1A1A] pt-40 pb-24">
-      <DomainIconGlyph
-        icon={icon}
-        className="pointer-events-none absolute -right-24 top-1/2 h-[28rem] w-[28rem] -translate-y-1/2 text-white/[0.04]"
-      />
+    <VideoHero bottom={ticker}>
+      {/* À l'extrême gauche du hero, hors de la colonne centrée : position
+          absolue par rapport à la section, pas au bloc de titre. */}
+      <Link
+        href="/#expertises"
+        className="sheet-label absolute top-8 left-6 inline-flex items-center gap-2 text-blue-tint no-underline transition-colors duration-200 hover:text-paper lg:top-10 lg:left-10 xl:left-16"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="h-3.5 w-3.5"
+          aria-hidden
+        >
+          <path d="M15 5l-7 7 7 7" />
+        </svg>
+        {tDetail("backToIndex")}
+      </Link>
 
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[#F07818]">
-          {eyebrow}
-        </p>
+      <h1 className="text-[clamp(1.875rem,8vw,3.5rem)] text-paper uppercase lg:text-[clamp(3rem,5.2vw,5.5rem)]">
+        {discipline}
+      </h1>
 
-        <h1 className="mt-6 text-5xl uppercase tracking-tight text-white sm:text-6xl lg:text-7xl">
-          {word}
-        </h1>
-
-        <p className="mt-6 max-w-xl text-lg text-white/70 leading-relaxed">
-          {subtitle}
-        </p>
-
-        <span className="mt-16 block h-16 w-px bg-white/20" />
-      </div>
-    </section>
+      <p className="mt-6 max-w-[46ch] text-[1.0625rem] text-blue-wash lg:text-[1.125rem]">
+        {subtitle}
+      </p>
+    </VideoHero>
   );
 }

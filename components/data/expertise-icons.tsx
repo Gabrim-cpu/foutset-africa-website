@@ -12,14 +12,6 @@ function WifiIcon({ className }: IconProps) {
   );
 }
 
-function BoltIcon({ className }: IconProps) {
-  return (
-    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-    </svg>
-  );
-}
-
 function FormationIcon({ className }: IconProps) {
   return (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -36,7 +28,7 @@ function PrestationIcon({ className }: IconProps) {
   );
 }
 
-function ImportExportIcon({ className }: IconProps) {
+function SupplyIcon({ className }: IconProps) {
   return (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
@@ -44,12 +36,29 @@ function ImportExportIcon({ className }: IconProps) {
   );
 }
 
+function BroadcastIcon({ className }: IconProps) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 20.25h12m-7.5-3v3m3-3v3M3.75 4.5h16.5c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125H3.75A1.125 1.125 0 012.625 15.375v-9.75C2.625 5.004 3.129 4.5 3.75 4.5z" />
+    </svg>
+  );
+}
+
+function EnergyIcon({ className }: IconProps) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+    </svg>
+  );
+}
+
 const icons: Record<ExpertiseIcon, (props: IconProps) => React.ReactElement> = {
   wifi: WifiIcon,
-  bolt: BoltIcon,
   formation: FormationIcon,
   prestation: PrestationIcon,
-  importExport: ImportExportIcon,
+  supply: SupplyIcon,
+  broadcast: BroadcastIcon,
+  energy: EnergyIcon,
 };
 
 export function ExpertiseIconGlyph({

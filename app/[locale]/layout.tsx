@@ -2,30 +2,40 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Merriweather, Lora, Plus_Jakarta_Sans } from "next/font/google";
+import { JetBrains_Mono, Manrope, Sora } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { routing } from "@/i18n/routing";
 import "../globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import SheetDefs from "@/components/map/SheetDefs";
+import ScrollManager from "@/components/layout/ScrollManager";
 
-const merriweather = Merriweather({
+/* L'identifiant de mesure GA4 (G-XXXXXXXXXX) vit en variable d'environnement,
+   jamais en dur : pas le même compte en développement et en production, et le
+   dépôt ne doit pas porter l'identifiant du client. Sans elle, le script ne
+   se charge simplement pas — le build ne casse pas en son absence. */
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+
+// Sora porte les titres : une géométrique ronde et dense, de la même famille
+// de dessin que le lettrage du logo.
+const sora = Sora({
   subsets: ["latin"],
-  weight: ["700"],
-  variable: "--font-merriweather",
+  variable: "--font-sora",
   display: "swap",
 });
 
-const lora = Lora({
+// Manrope porte le texte courant : ouverte, très lisible en petit corps.
+const manrope = Manrope({
   subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-lora",
+  variable: "--font-manrope",
   display: "swap",
 });
 
-const plusJakartaSans = Plus_Jakarta_Sans({
+// Réservé aux valeurs réellement mesurées : bandes, débits, distances.
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-plus-jakarta-sans",
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -69,14 +79,18 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       data-scroll-behavior="smooth"
-      className={`${merriweather.variable} ${lora.variable} ${plusJakartaSans.variable}`}
+      className={`${sora.variable} ${manrope.variable} ${jetbrainsMono.variable}`}
     >
       <body className="antialiased">
         <NextIntlClientProvider>
+          {/* La géométrie du continent, définie une fois pour toute la page. */}
+          <SheetDefs />
+          <ScrollManager />
           <Header />
           {children}
           <Footer />
         </NextIntlClientProvider>
+        {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
       </body>
     </html>
   );

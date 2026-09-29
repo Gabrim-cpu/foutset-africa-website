@@ -2,7 +2,12 @@ import { useId } from "react";
 
 export function FrenchFlag({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 3 2" aria-hidden="true">
+    <svg
+      className={className}
+      viewBox="0 0 3 2"
+      preserveAspectRatio="xMidYMid slice"
+      aria-hidden="true"
+    >
       <rect width="3" height="2" fill="#FFFFFF" />
       <rect width="1" height="2" fill="#002395" />
       <rect x="2" width="1" height="2" fill="#ED2939" />
@@ -16,7 +21,12 @@ export function BritishFlag({ className }: { className?: string }) {
   const diagonalClipId = `${id}-diagonal-clip`;
 
   return (
-    <svg className={className} viewBox="0 0 60 30" aria-hidden="true">
+    <svg
+      className={className}
+      viewBox="0 0 60 30"
+      preserveAspectRatio="xMidYMid slice"
+      aria-hidden="true"
+    >
       <clipPath id={clipId}>
         <path d="M0,0 v30 h60 v-30 z" />
       </clipPath>

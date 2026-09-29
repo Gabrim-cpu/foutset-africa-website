@@ -1,22 +1,49 @@
-export type ExpertiseIcon = "wifi" | "bolt" | "formation" | "prestation" | "importExport";
+export type ExpertiseIcon =
+  | "wifi"
+  | "formation"
+  | "prestation"
+  | "supply"
+  | "broadcast"
+  | "energy";
 
 export type ExpertiseItem = {
   id: string;
   icon: ExpertiseIcon;
+  /** Photo de la carte d'expertise sur l'accueil, servie depuis public/. */
+  image: string;
 };
 
-export const primaryExpertise: ExpertiseItem[] = [
-  { id: "reseaux-telecom", icon: "wifi" },
-  { id: "energie", icon: "bolt" },
-];
-
-export const groupedExpertise: ExpertiseItem[] = [
-  { id: "formation", icon: "formation" },
-  { id: "prestation", icon: "prestation" },
-  { id: "import-export", icon: "importExport" },
-];
-
+/* Le télécom mène : c'est le cœur du métier, et la première entrée partout
+   (bandeau, index, formulaire). Les trois autres expertises le servent. */
 export const allExpertise: ExpertiseItem[] = [
-  ...primaryExpertise,
-  ...groupedExpertise,
+  {
+    id: "reseaux-telecom",
+    icon: "wifi",
+    image: "/images/network-telecom.jpg",
+  },
+  {
+    id: "formation",
+    icon: "formation",
+    image: "/images/expertise/Trainings.jpg",
+  },
+  {
+    id: "prestation",
+    icon: "prestation",
+    image: "/images/site-panorama.jpg",
+  },
+  {
+    id: "equipment-supply",
+    icon: "supply",
+    image: "/images/telecom-site.jpg",
+  },
+  {
+    id: "energie",
+    icon: "energy",
+    image: "/images/expertise/solar-energy.jpg",
+  },
+  {
+    id: "diffusion-tv-vsat",
+    icon: "broadcast",
+    image: "/images/expertise/satellite-tv-broadcasting.png",
+  },
 ];
