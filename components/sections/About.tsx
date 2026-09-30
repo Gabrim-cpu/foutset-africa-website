@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import HeroVideo from "@/components/sections/HeroVideo";
 import BrandText from "@/components/ui/BrandText";
@@ -34,13 +33,8 @@ export default async function About() {
       className="relative isolate overflow-hidden bg-ink flex h-svh flex-col justify-start"
     >
       <div aria-hidden className="absolute inset-0 -z-10 grayscale">
-        <Image
-          src="/images/site-panorama.jpg"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover object-center"
-        />
+        {/* La photo de site prévue ici n'a jamais été livrée ; la vidéo seule
+            porte le fond, plutôt qu'une image inventée ou un aplat. */}
         <HeroVideo
           sources={VIDEO_SOURCES}
           className="object-cover object-center"

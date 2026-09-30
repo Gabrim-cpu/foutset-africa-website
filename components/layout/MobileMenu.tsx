@@ -60,7 +60,9 @@ export default function MobileMenu({
                         className="flex items-baseline py-2.5 pl-4 no-underline"
                       >
                         <span className="font-display text-[1.0625rem] font-medium text-body">
-                          {tExpertise(`${child.key}.title`)}
+                          {child.ns === "nav"
+                            ? t(child.key)
+                            : tExpertise(`${child.key}.title`)}
                         </span>
                       </Link>
                     </li>

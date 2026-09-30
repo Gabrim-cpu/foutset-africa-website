@@ -1,13 +1,21 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import SkeletonImage from "@/components/ui/SkeletonImage";
-import { allExpertise } from "@/components/data/expertise";
+import { allExpertise, type ExpertiseIcon } from "@/components/data/expertise";
+import { ExpertiseIconGlyph } from "@/components/data/expertise-icons";
 import { AnimatedText } from "@/components/ui/animated-text";
 
 /* Les expertises, en mosaïque : une grande case photo, des cases photo
    plus petites, et une case d'appel. Chaque service porte sa photo en fond.
    Au survol, le titre et la description passent aux couleurs du logo
-   (bleu, orange) — pas de levée ni de zoom. */
+   (bleu, orange) — pas de levée ni de zoom.
+
+   L'essai « lg:sticky lg:top-0 » est retiré : le parent sticky de la section
+   était <body> tout entier, donc la feuille se collait en haut de l'écran
+   pour toute la page — le Groupe et le pied restaient dessous, invisibles,
+   sur les trois quarts du défilement. Sans sticky, la feuille glisse une
+   fois sur le hero (ses coins arrondis en haut gardent ce geste), puis le
+   défilement reprend normalement. */
 
 const SIZES = "(min-width: 1024px) 45vw, 100vw";
 
@@ -31,10 +39,14 @@ function Chevron({ className }: { className?: string }) {
 async function ServiceCell({
   id,
   image,
+  icon,
   featured = false,
 }: {
   id: string;
-  image: string;
+  /** Sans photo réelle, la cellule reste sur son fond abysse — on n'invente
+      pas d'image (voir PRODUCT.md). Le pictogramme du métier la porte. */
+  image?: string | null;
+  icon: ExpertiseIcon;
   featured?: boolean;
 }) {
   const t = await getTranslations("expertiseItems");
@@ -49,13 +61,20 @@ async function ServiceCell({
           : "min-h-[12rem] lg:min-h-0"
       }`}
     >
-      <SkeletonImage
-        src={image}
-        alt=""
-        fill
-        sizes={SIZES}
-        className="object-cover"
-      />
+      {image ? (
+        <SkeletonImage
+          src={image}
+          alt=""
+          fill
+          sizes={SIZES}
+          className="object-cover"
+        />
+      ) : (
+        <ExpertiseIconGlyph
+          icon={icon}
+          className="absolute top-6 left-6 h-12 w-12 text-blue-tint/25 transition-colors duration-300 group-hover/cell:text-blue-tint/40"
+        />
+      )}
       <div
         aria-hidden
         className="absolute inset-0 bg-[linear-gradient(to_top,rgba(6,9,13,0.86)_0%,rgba(6,9,13,0.35)_52%,transparent_78%)]"
@@ -121,7 +140,7 @@ export default async function Expertise() {
   return (
     <section
       id="expertises"
-      className="relative isolate z-[2] flex scroll-mt-0 flex-col justify-center overflow-hidden rounded-t-[1.25rem] bg-paper lg:sticky lg:top-0 lg:min-h-svh"
+      className="relative isolate z-[2] flex scroll-mt-0 flex-col justify-center overflow-hidden rounded-t-[1.25rem] bg-paper lg:min-h-svh"
     >
       {/* Essai du client : une trame de lignes fines, avec une lueur radiale
           posée dessus en haut à droite. C'est un fond décoratif quadrillé
@@ -168,12 +187,12 @@ export default async function Expertise() {
         </div>
 
         <div className="grid w-full grid-cols-1 gap-5 lg:grid-cols-3 lg:grid-rows-[clamp(13rem,22svh,16rem)_clamp(13rem,22svh,16rem)_clamp(12rem,17svh,13.5rem)]">
-          <ServiceCell id={lead.id} image={lead.image} featured />
-          <ServiceCell id={energie.id} image={energie.image} />
-          <ServiceCell id={formation.id} image={formation.image} />
+          <ServiceCell id={lead.id} image={lead.image} icon={lead.icon} featured />
+          <ServiceCell id={energie.id} image={energie.image} icon={energie.icon} />
+          <ServiceCell id={formation.id} image={formation.image} icon={formation.icon} />
           <CtaCell />
-          <ServiceCell id={supply.id} image={supply.image} />
-          <ServiceCell id={broadcast.id} image={broadcast.image} />
+          <ServiceCell id={supply.id} image={supply.image} icon={supply.icon} />
+          <ServiceCell id={broadcast.id} image={broadcast.image} icon={broadcast.icon} />
         </div>
       </div>
     </section>

@@ -9,8 +9,10 @@ export type ExpertiseIcon =
 export type ExpertiseItem = {
   id: string;
   icon: ExpertiseIcon;
-  /** Photo de la carte d'expertise sur l'accueil, servie depuis public/. */
-  image: string;
+  /** Photo de la carte d'expertise sur l'accueil, servie depuis public/.
+      Null quand aucune photo réelle n'existe : la carte reste sur son fond
+      abysse avec son pictogramme — on n'invente pas d'image (PRODUCT.md). */
+  image: string | null;
 };
 
 /* Le télécom mène : c'est le cœur du métier, et la première entrée partout
@@ -19,7 +21,7 @@ export const allExpertise: ExpertiseItem[] = [
   {
     id: "reseaux-telecom",
     icon: "wifi",
-    image: "/images/network-telecom.jpg",
+    image: "/images/expertise/network-telecom.jpg",
   },
   {
     id: "formation",
@@ -29,12 +31,14 @@ export const allExpertise: ExpertiseItem[] = [
   {
     id: "prestation",
     icon: "prestation",
-    image: "/images/site-panorama.jpg",
+    // Pas de photo dédiée : l'import/export n'a pas encore d'image réelle.
+    image: null,
   },
   {
     id: "equipment-supply",
     icon: "supply",
-    image: "/images/telecom-site.jpg",
+    // Pas de photo dédiée : l'import/export n'a pas encore d'image réelle.
+    image: null,
   },
   {
     id: "energie",
